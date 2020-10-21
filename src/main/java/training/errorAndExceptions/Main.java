@@ -5,20 +5,20 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-//       ArrayList listOfFaculty = dataBaseInputting("faculty");
-        ArrayList listOfFaculty = manualInputOfFaculty();
-//       ArrayList listOfGroup = dataBaseInputting("group");
-        ArrayList listOfGroup =manualInputOfGroup();
-//      ArrayList listOfSubjects = dataBaseInputting("subject");
-        ArrayList listOfSubjects = manualInputOfSubjects();
-//      ArrayList listOfStudent = studentDataBase(listOfFaculty, listOfGroup, listOfSubjects);
-        ArrayList listOfStudent = manualInputOfStudent();
-//        ArrayList listOfStudentAssessments = studentAssessments(listOfStudent,listOfSubjects);
-        ArrayList listOfStudentAssessments = manaulInputOfStudentAssessment();
+//       ArrayList listOfFaculty = manualDataBaseInputting("faculty");
+        ArrayList listOfFaculty = inputOfFaculty();
+//      ArrayList listOfGroup = manualDataBaseInputting("group");
+        ArrayList listOfGroup =inputOfGroup();
+//      ArrayList listOfSubjects = manualDataBaseInputting("subject");
+        ArrayList listOfSubjects = inputOfSubjects();
+//      ArrayList listOfStudent = manualStudentDataBaseInputting(listOfFaculty, listOfGroup, listOfSubjects);
+        ArrayList listOfStudent = inputOfStudent();
+//      ArrayList listOfStudentAssessments = manualStudentAssessmentsInputting(listOfStudent,listOfSubjects);
+        ArrayList listOfStudentAssessments = inputOfStudentAssessment();
         menu(listOfStudent, listOfStudentAssessments, listOfFaculty, listOfGroup, listOfSubjects);
     }
 
-    private static ArrayList manaulInputOfStudentAssessment() {
+    private static ArrayList inputOfStudentAssessment() {
         ArrayList listOfStudentAssessment= new ArrayList();
         listOfStudentAssessment .add(0 , new SubjectsBase("Igor","Geography",4));
         listOfStudentAssessment .add(1 , new SubjectsBase("Igor","Fitness",7));
@@ -42,7 +42,7 @@ public class Main {
         return listOfStudentAssessment;
     }
 
-    private static ArrayList manualInputOfStudent() {
+    private static ArrayList inputOfStudent() {
         ArrayList listOfStudent= new ArrayList();
         listOfStudent .add(0 , new Student("Igor","100","FITR"));
         listOfStudent .add(1 , new Student("Tolik","101","FITR2"));
@@ -52,7 +52,7 @@ public class Main {
         return listOfStudent ;
     }
 
-    private static ArrayList manualInputOfSubjects() {
+    private static ArrayList inputOfSubjects() {
         ArrayList listOfSubjects = new ArrayList();
         listOfSubjects .add(0 , "Geography");
         listOfSubjects .add(1 , "Fitness");
@@ -60,7 +60,7 @@ public class Main {
         return listOfSubjects ;
     }
 
-    private static ArrayList manualInputOfGroup() {
+    private static ArrayList inputOfGroup() {
         ArrayList listOfGroup = new ArrayList();
         listOfGroup.add(0 , "100");
         listOfGroup.add(1 , "101");
@@ -68,7 +68,7 @@ public class Main {
         return listOfGroup;
     }
 
-    private static ArrayList manualInputOfFaculty() {
+    private static ArrayList inputOfFaculty() {
         ArrayList listOfFaculty = new ArrayList();
         listOfFaculty.add(0 , "FITR");
         listOfFaculty.add(1 , "FITR2");
@@ -127,7 +127,7 @@ public class Main {
                     }
                 }
         }
-        System.out.println("The average assessmnet of "+selectedSubject+" subject "+" of "+selectedFaculty+" faculty of "+selectedGroup+" group is: "+averageAssessment/count);
+        System.out.println("The average assessment of "+selectedSubject+" subject "+" of "+selectedFaculty+" faculty of "+selectedGroup+" group is: "+averageAssessment/count);
     }
 
     private static void averageValueCalculation(ArrayList litOfStudent, ArrayList listOfStudentAssessments) {
@@ -146,7 +146,7 @@ public class Main {
         System.out.println("An average assessment of all subjects: " + assessmentsSume/count);
     }
 
-    public static ArrayList dataBaseInputting(String nameOfParameter) {
+    public static ArrayList manualDataBaseInputting(String nameOfParameter) {
         ArrayList listOfElement = new ArrayList();
         int index = 0;
         String finish="";
@@ -165,7 +165,7 @@ public class Main {
         return listOfElement;
      //  }
    }
-    private static ArrayList studentDataBase(ArrayList listOfFaculty, ArrayList listOfGroup, ArrayList listOfSubject) {
+    private static ArrayList manualStudentDataBaseInputting(ArrayList listOfFaculty, ArrayList listOfGroup, ArrayList listOfSubject) {
         ArrayList listOfStudent = new ArrayList();
        String finish="";
        while (!finish.contains("n")){
@@ -227,7 +227,7 @@ public class Main {
         return ((Student) listOfStudent.get(inputtedValue - 1)).getStudentFullName();
     }
 
-    private static ArrayList studentAssessments(ArrayList listOfStudent, ArrayList listOfSubjects) {
+    private static ArrayList manualStudentAssessmentsInputting(ArrayList listOfStudent, ArrayList listOfSubjects) {
         ArrayList studentSubjectsAssessments = new ArrayList();
         String studentName;
         while (true) {
