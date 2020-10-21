@@ -5,12 +5,75 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-       ArrayList listOfFaculty = dataBaseInputting("faculty");
-       ArrayList listOfGroup = dataBaseInputting("group");
-       ArrayList listOfSubjects = dataBaseInputting("subject");
-       ArrayList listOfStudent = studentDataBase(listOfFaculty, listOfGroup, listOfSubjects);
-       ArrayList listOfStudentAssessments = studentAssessments(listOfStudent,listOfSubjects);
-       menu(listOfStudent, listOfStudentAssessments, listOfFaculty, listOfGroup, listOfSubjects);
+//       ArrayList listOfFaculty = dataBaseInputting("faculty");
+        ArrayList listOfFaculty = manualInputOfFaculty();
+//       ArrayList listOfGroup = dataBaseInputting("group");
+        ArrayList listOfGroup =manualInputOfGroup();
+//      ArrayList listOfSubjects = dataBaseInputting("subject");
+        ArrayList listOfSubjects = manualInputOfSubjects();
+//      ArrayList listOfStudent = studentDataBase(listOfFaculty, listOfGroup, listOfSubjects);
+        ArrayList listOfStudent = manualInputOfStudent();
+//        ArrayList listOfStudentAssessments = studentAssessments(listOfStudent,listOfSubjects);
+        ArrayList listOfStudentAssessments = manaulInputOfStudentAssessment();
+        menu(listOfStudent, listOfStudentAssessments, listOfFaculty, listOfGroup, listOfSubjects);
+    }
+
+    private static ArrayList manaulInputOfStudentAssessment() {
+        ArrayList listOfStudentAssessment= new ArrayList();
+        listOfStudentAssessment .add(0 , new SubjectsBase("Igor","Geography",4));
+        listOfStudentAssessment .add(1 , new SubjectsBase("Igor","Fitness",7));
+        listOfStudentAssessment .add(2 , new SubjectsBase("Igor","Russian Language",10));
+
+        listOfStudentAssessment .add(3 , new SubjectsBase("Tolik","Geography",3));
+        listOfStudentAssessment .add(4 , new SubjectsBase("Tolik","Fitness",8));
+        listOfStudentAssessment .add(5 , new SubjectsBase("Tolik","Russian Language",8));
+
+        listOfStudentAssessment .add(6, new SubjectsBase("Oleg","Geography",3));
+        listOfStudentAssessment .add(7 , new SubjectsBase("Oleg","Fitness",4));
+        listOfStudentAssessment .add(8 , new SubjectsBase("Oleg","Russian Language",4));
+
+        listOfStudentAssessment .add(9 , new SubjectsBase("Natallia","Geography",9));
+        listOfStudentAssessment .add(10 , new SubjectsBase("Natallia","Fitness",10));
+        listOfStudentAssessment .add(11, new SubjectsBase("Natallia","Russian Language",9));
+
+        listOfStudentAssessment .add(9 , new SubjectsBase("Vitalik","Geography",7));
+        listOfStudentAssessment .add(10 , new SubjectsBase("Vitalik","Fitness",8));
+        listOfStudentAssessment .add(11, new SubjectsBase("Vitalik","Russian Language",7));
+        return listOfStudentAssessment;
+    }
+
+    private static ArrayList manualInputOfStudent() {
+        ArrayList listOfStudent= new ArrayList();
+        listOfStudent .add(0 , new Student("Igor","100","FITR"));
+        listOfStudent .add(1 , new Student("Tolik","101","FITR2"));
+        listOfStudent .add(2 , new Student("Oleg","100","FITR2"));
+        listOfStudent .add(3 , new Student("Natallia","101","FITR"));
+        listOfStudent .add(4 , new Student("Vitalik","100","FITR3"));
+        return listOfStudent ;
+    }
+
+    private static ArrayList manualInputOfSubjects() {
+        ArrayList listOfSubjects = new ArrayList();
+        listOfSubjects .add(0 , "Geography");
+        listOfSubjects .add(1 , "Fitness");
+        listOfSubjects .add(2 , "Russian Language");
+        return listOfSubjects ;
+    }
+
+    private static ArrayList manualInputOfGroup() {
+        ArrayList listOfGroup = new ArrayList();
+        listOfGroup.add(0 , "100");
+        listOfGroup.add(1 , "101");
+        listOfGroup.add(2 , "102");
+        return listOfGroup;
+    }
+
+    private static ArrayList manualInputOfFaculty() {
+        ArrayList listOfFaculty = new ArrayList();
+        listOfFaculty.add(0 , "FITR");
+        listOfFaculty.add(1 , "FITR2");
+        listOfFaculty.add(2 , "FITR3");
+        return listOfFaculty;
     }
 
     public static void menu(ArrayList litOfStudent, ArrayList listOfStudentAssessments, ArrayList listOdFaculty, ArrayList listOfGroup, ArrayList listOfSubjects){
@@ -30,8 +93,20 @@ public class Main {
                     averageValueCalculation(litOfStudent, listOfStudentAssessments);
                 case(2):
                     averageValueByParameter(litOfStudent,listOfSubjects, listOdFaculty, listOfGroup, listOfStudentAssessments);
+                case(3):
+                    averageOfAssessmentAroundUniversity(listOfStudentAssessments);
             }
         }
+    }
+
+    private static void averageOfAssessmentAroundUniversity(ArrayList listOfStudentAssessments) {
+        Double overalSumme=0.0;
+        int count=0;
+        for(int index=0;index<listOfStudentAssessments.size();index++){
+            overalSumme = overalSumme + ((SubjectsBase) listOfStudentAssessments.get(index)).getAssessment();
+            count++;
+        }
+        System.out.println("An average assessment of all subjects around the University is: "+overalSumme/count);
     }
 
     private static void averageValueByParameter(ArrayList listOfStudent, ArrayList listOfSubjects, ArrayList listOdFaculty, ArrayList listOfGroup, ArrayList listOfStudentAssessments) {
@@ -45,7 +120,7 @@ public class Main {
         int count=0;
         for (int index=0;index<listOfStudent.size();index++){
             if (((Student) listOfStudent.get(index)).getFaculty().contains(selectedFaculty) && ((Student) listOfStudent.get(index)).getGroup().contains(selectedGroup))
-                for (int indexStudentAssessments=0;index<listOfStudentAssessments.size();indexStudentAssessments++){
+                for (int indexStudentAssessments=0;indexStudentAssessments<listOfStudentAssessments.size();indexStudentAssessments++){
                     if (((SubjectsBase) listOfStudentAssessments.get(indexStudentAssessments)).getSubjectName().contains(selectedSubject)) {
                         averageAssessment = averageAssessment + ((SubjectsBase) listOfStudentAssessments.get(indexStudentAssessments)).getAssessment();
                         count++;
