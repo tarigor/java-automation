@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws userException {
 //       ArrayList listOfFaculty = manualDataBaseInputting("faculty");
         ArrayList listOfFaculty = inputOfFaculty();
 //      ArrayList listOfGroup = manualDataBaseInputting("group");
@@ -15,14 +15,83 @@ public class Main {
         ArrayList listOfStudent = inputOfStudent();
 //      ArrayList listOfStudentAssessments = manualStudentAssessmentsInputting(listOfStudent,listOfSubjects);
         ArrayList listOfStudentAssessments = inputOfStudentAssessment();
-        menu(listOfStudent, listOfStudentAssessments, listOfFaculty, listOfGroup, listOfSubjects);
+        valueOfAssessmentsCheck(listOfStudentAssessments);
+        subjectsExistingCheck(listOfSubjects, listOfStudentAssessments, listOfStudent);
+        studentInGroupMissingCheck(listOfStudent,listOfGroup);
+        groupInFacultiesMissingCheck(listOfStudent,listOfGroup,listOfFaculty);
+        facultiesMissingCheck(listOfStudent,listOfFaculty);
+ //       menu(listOfStudent, listOfStudentAssessments, listOfFaculty, listOfGroup, listOfSubjects);
+    }
+
+    private static void facultiesMissingCheck(ArrayList listOfStudent, ArrayList listOfFaculty) throws userException {
+        int facultyExisting=0;
+        for(int indexOfStudent=0;indexOfStudent<listOfStudent.size();indexOfStudent++){
+            for(int indexOfFaculty=0;indexOfFaculty<listOfFaculty.size();indexOfFaculty++){
+                if(((Student) listOfStudent.get(indexOfStudent)).getFaculty().contentEquals(listOfFaculty.get(indexOfFaculty).toString()))
+                    facultyExisting++;
+            }
+            if(facultyExisting==0) throw new userException ("There is no faculty assigned for student "
+                    + ((Student) listOfStudent.get(indexOfStudent)).getStudentFullName());
+            facultyExisting=0;
+        }
+    }
+
+    private static void groupInFacultiesMissingCheck(ArrayList listOfStudent, ArrayList listOfGroup, ArrayList listOfFaculty) throws userException {
+        int groupExisting=0;
+        for (int indexOfStudent=0;indexOfStudent<listOfStudent.size();indexOfStudent++){
+            for(int indexOfGroup=0; indexOfGroup<listOfGroup.size();indexOfGroup++){
+                if (((Student) listOfStudent.get(indexOfStudent)).getGroup().contains(listOfGroup.get(indexOfGroup).toString()))
+                    groupExisting++;
+            }
+            if (groupExisting==0) throw new userException("There is no group assigned for student "+ ((Student) listOfStudent.get(indexOfStudent)).getStudentFullName()
+                    +" of faculty "+ ((Student) listOfStudent.get(indexOfStudent)).getFaculty());
+            groupExisting=0;
+        }
+    }
+
+    private static void studentInGroupMissingCheck(ArrayList listOfStudent, ArrayList listOfGroup) throws userException {
+        int groupAssigned=0;
+        for(int indexOfGroup=0; indexOfGroup<listOfGroup.size();indexOfGroup++){
+            for (int indexOfStudent=0;indexOfStudent<listOfStudent.size();indexOfStudent++){
+                if (listOfGroup.get(indexOfGroup).toString().contains(((Student) listOfStudent.get(indexOfStudent)).getGroup()))
+                    groupAssigned++;
+            }
+            if (groupAssigned==0) throw new userException("There are no students assigned to group "+ listOfGroup.get(indexOfGroup));
+            groupAssigned=0;
+        }
+    }
+
+    private static void subjectsExistingCheck(ArrayList listOfSubjects, ArrayList listOfStudentAssessments, ArrayList listOfStudent) throws userException {
+        int subjectExsisting=0;
+        for (int indexStudent=0; indexStudent<listOfStudent.size();indexStudent++){
+            for(int indexOfStudentInAssessmentArray=0; indexOfStudentInAssessmentArray<listOfStudentAssessments.size();indexOfStudentInAssessmentArray++){
+                if (((SubjectsBase) listOfStudentAssessments.get(indexOfStudentInAssessmentArray)).getStudentName().contentEquals(((Student) listOfStudent.get(indexStudent)).getStudentFullName()))
+                    for (int indexOfSubject=0; indexOfSubject<listOfSubjects.size();indexOfSubject++){
+                        if (((SubjectsBase) listOfStudentAssessments.get(indexOfStudentInAssessmentArray)).getSubjectName().contentEquals(listOfSubjects.get(indexOfSubject).toString()))
+                            subjectExsisting++;
+                    }
+            }
+            if (subjectExsisting==0){
+                throw new userException("The student "+ ((Student) listOfStudent.get(indexStudent)).getStudentFullName()+" has not assigned subjects");
+            }
+            subjectExsisting=0;
+        }
+    }
+
+    private static void valueOfAssessmentsCheck(ArrayList listOfStudentAssessments) throws userException {
+        for(int index=0;index<listOfStudentAssessments.size();index++){
+            if (((SubjectsBase) listOfStudentAssessments.get(index)).getAssessment()<0 || ((SubjectsBase) listOfStudentAssessments.get(index)).getAssessment()>10)
+                throw new userException("The subjext "+ ((SubjectsBase) listOfStudentAssessments.get(index)).getSubjectName()+" of student "
+                        +((SubjectsBase) listOfStudentAssessments.get(index)).getStudentName() + " has a value "+
+                        ((SubjectsBase) listOfStudentAssessments.get(index)).getAssessment() +" which is out of range 0-10");
+        }
     }
 
     private static ArrayList inputOfStudentAssessment() {
         ArrayList listOfStudentAssessment= new ArrayList();
         listOfStudentAssessment .add(0 , new SubjectsBase("Igor","Geography",4));
         listOfStudentAssessment .add(1 , new SubjectsBase("Igor","Fitness",7));
-        listOfStudentAssessment .add(2 , new SubjectsBase("Igor","Russian Language",10));
+        listOfStudentAssessment .add(2 , new SubjectsBase("Igor","Russian Language",2));
 
         listOfStudentAssessment .add(3 , new SubjectsBase("Tolik","Geography",3));
         listOfStudentAssessment .add(4 , new SubjectsBase("Tolik","Fitness",8));
@@ -48,7 +117,7 @@ public class Main {
         listOfStudent .add(1 , new Student("Tolik","101","FITR2"));
         listOfStudent .add(2 , new Student("Oleg","100","FITR2"));
         listOfStudent .add(3 , new Student("Natallia","101","FITR"));
-        listOfStudent .add(4 , new Student("Vitalik","100","FITR3"));
+        listOfStudent .add(4 , new Student("Vitalik","101","FITR3"));
         return listOfStudent ;
     }
 
@@ -64,7 +133,8 @@ public class Main {
         ArrayList listOfGroup = new ArrayList();
         listOfGroup.add(0 , "100");
         listOfGroup.add(1 , "101");
-        listOfGroup.add(2 , "102");
+//        listOfGroup.add(2 , "102");
+//        listOfGroup.add(3 , "103");
         return listOfGroup;
     }
 
