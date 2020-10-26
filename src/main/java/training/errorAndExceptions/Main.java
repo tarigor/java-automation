@@ -5,6 +5,9 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws userException {
+        //There are two possibilities for initial data applying:
+        // - manual inputting step by step (commented lines of the corresponding methods call)
+        // - use the predetermined arrays
 //       ArrayList listOfFaculty = manualDataBaseInputting("faculty");
         ArrayList listOfFaculty = inputOfFaculty();
 //      ArrayList listOfGroup = manualDataBaseInputting("group");
@@ -20,7 +23,7 @@ public class Main {
         studentInGroupMissingCheck(listOfStudent,listOfGroup);
         groupInFacultiesMissingCheck(listOfStudent,listOfGroup,listOfFaculty);
         facultiesMissingCheck(listOfStudent,listOfFaculty);
- //       menu(listOfStudent, listOfStudentAssessments, listOfFaculty, listOfGroup, listOfSubjects);
+        menu(listOfStudent, listOfStudentAssessments, listOfFaculty, listOfGroup, listOfSubjects);
     }
 
     private static void facultiesMissingCheck(ArrayList listOfStudent, ArrayList listOfFaculty) throws userException {
@@ -153,7 +156,6 @@ public class Main {
             System.out.println("1. calculate an average assessment value of all subject of certain student");
             System.out.println("2. calculate an average value of certain subject in certain faculty and group");
             System.out.println("3. calculate an average value of subject overall around university");
-            System.out.println("0. finish");
             System.out.println("");
 
             Scanner selection = new Scanner(System.in);
@@ -161,10 +163,13 @@ public class Main {
             switch (selection.nextInt()){
                 case(1):
                     averageValueCalculation(litOfStudent, listOfStudentAssessments);
+                    break;
                 case(2):
                     averageValueByParameter(litOfStudent,listOfSubjects, listOdFaculty, listOfGroup, listOfStudentAssessments);
+                    break;
                 case(3):
                     averageOfAssessmentAroundUniversity(listOfStudentAssessments);
+                    break;
             }
         }
     }
@@ -270,7 +275,6 @@ public class Main {
             for (int index=0;index<listOfAssignment.size();index++){
                 System.out.println(index+1 +". "+  listOfAssignment.get(index).toString());
             }
-            System.out.println("array size: "+listOfAssignment.size());
             Scanner input= new Scanner(System.in);
             inputtedValue = input.nextInt();
             if (inputtedValue-1>= listOfAssignment.size()) {
