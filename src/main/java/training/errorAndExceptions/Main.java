@@ -12,11 +12,11 @@ public class Main {
         ArrayList listOfFaculty = inputOfFaculty();
 //      ArrayList listOfGroup = manualDataBaseInputting("group");
         ArrayList listOfGroup =inputOfGroup();
-//      ArrayList listOfSubjects = manualDataBaseInputting("subject");
+//     ArrayList listOfSubjects = manualDataBaseInputting("subject");
         ArrayList listOfSubjects = inputOfSubjects();
-//      ArrayList listOfStudent = manualStudentDataBaseInputting(listOfFaculty, listOfGroup, listOfSubjects);
+//     ArrayList listOfStudent = manualStudentDataBaseInputting(listOfFaculty, listOfGroup, listOfSubjects);
         ArrayList listOfStudent = inputOfStudent();
-//      ArrayList listOfStudentAssessments = manualStudentAssessmentsInputting(listOfStudent,listOfSubjects);
+//     ArrayList listOfStudentAssessments = manualStudentAssessmentsInputting(listOfStudent,listOfSubjects);
         ArrayList listOfStudentAssessments = inputOfStudentAssessment();
         valueOfAssessmentsCheck(listOfStudentAssessments);
         subjectsExistingCheck(listOfSubjects, listOfStudentAssessments, listOfStudent);
@@ -28,65 +28,69 @@ public class Main {
 
     private static void facultiesMissingCheck(ArrayList listOfStudent, ArrayList listOfFaculty) throws userException {
         int facultyExisting=0;
-        for(int indexOfStudent=0;indexOfStudent<listOfStudent.size();indexOfStudent++){
-            for(int indexOfFaculty=0;indexOfFaculty<listOfFaculty.size();indexOfFaculty++){
-                if(((Student) listOfStudent.get(indexOfStudent)).getFaculty().contentEquals(listOfFaculty.get(indexOfFaculty).toString()))
-                    facultyExisting++;
+        for (Object student:listOfStudent) {
+            for(Object faculty: listOfFaculty){
+                if (((Student) student).getFaculty().contentEquals(faculty.toString()));
+                facultyExisting++;
             }
             if(facultyExisting==0) throw new userException ("There is no faculty assigned for student "
-                    + ((Student) listOfStudent.get(indexOfStudent)).getStudentFullName());
+                    + ((Student) student).getStudentFullName());
             facultyExisting=0;
         }
+
+
     }
 
     private static void groupInFacultiesMissingCheck(ArrayList listOfStudent, ArrayList listOfGroup, ArrayList listOfFaculty) throws userException {
         int groupExisting=0;
-        for (int indexOfStudent=0;indexOfStudent<listOfStudent.size();indexOfStudent++){
-            for(int indexOfGroup=0; indexOfGroup<listOfGroup.size();indexOfGroup++){
-                if (((Student) listOfStudent.get(indexOfStudent)).getGroup().contains(listOfGroup.get(indexOfGroup).toString()))
+        for(Object student:listOfStudent){
+            for(Object group:listOfGroup){
+                if(((Student) student).getGroup().contentEquals(group.toString()))
                     groupExisting++;
             }
-            if (groupExisting==0) throw new userException("There is no group assigned for student "+ ((Student) listOfStudent.get(indexOfStudent)).getStudentFullName()
-                    +" of faculty "+ ((Student) listOfStudent.get(indexOfStudent)).getFaculty());
+            if (groupExisting==0) throw new userException("There is no group assigned for student "+ ((Student) student).getStudentFullName()
+                    +" of faculty "+((Student) student).getFaculty());
             groupExisting=0;
         }
     }
 
     private static void studentInGroupMissingCheck(ArrayList listOfStudent, ArrayList listOfGroup) throws userException {
         int groupAssigned=0;
-        for(int indexOfGroup=0; indexOfGroup<listOfGroup.size();indexOfGroup++){
-            for (int indexOfStudent=0;indexOfStudent<listOfStudent.size();indexOfStudent++){
-                if (listOfGroup.get(indexOfGroup).toString().contains(((Student) listOfStudent.get(indexOfStudent)).getGroup()))
+        for(Object group:listOfGroup){
+            for(Object student:listOfStudent){
+                if(group.toString().contentEquals(((Student) student).getGroup()))
                     groupAssigned++;
             }
-            if (groupAssigned==0) throw new userException("There are no students assigned to group "+ listOfGroup.get(indexOfGroup));
+            if (groupAssigned==0) throw new userException("There are no students assigned to group "+group.toString());
             groupAssigned=0;
         }
     }
 
     private static void subjectsExistingCheck(ArrayList listOfSubjects, ArrayList listOfStudentAssessments, ArrayList listOfStudent) throws userException {
         int subjectExsisting=0;
-        for (int indexStudent=0; indexStudent<listOfStudent.size();indexStudent++){
-            for(int indexOfStudentInAssessmentArray=0; indexOfStudentInAssessmentArray<listOfStudentAssessments.size();indexOfStudentInAssessmentArray++){
-                if (((SubjectsBase) listOfStudentAssessments.get(indexOfStudentInAssessmentArray)).getStudentName().contentEquals(((Student) listOfStudent.get(indexStudent)).getStudentFullName()))
-                    for (int indexOfSubject=0; indexOfSubject<listOfSubjects.size();indexOfSubject++){
-                        if (((SubjectsBase) listOfStudentAssessments.get(indexOfStudentInAssessmentArray)).getSubjectName().contentEquals(listOfSubjects.get(indexOfSubject).toString()))
+        for(Object student: listOfStudent) {
+            for (Object studentAssessment : listOfStudentAssessments) {
+                if (((SubjectsBase) studentAssessment).getStudentName().contentEquals(((Student) student).getStudentFullName())) {
+                    for (Object subject : listOfSubjects) {
+                        if (((SubjectsBase) studentAssessment).getSubjectName().contentEquals(subject.toString()))
                             subjectExsisting++;
                     }
+                }
             }
-            if (subjectExsisting==0){
-                throw new userException("The student "+ ((Student) listOfStudent.get(indexStudent)).getStudentFullName()+" has not assigned subjects");
+            if (subjectExsisting == 0) {
+                throw new userException("The student " + ((Student) student).getStudentFullName() + " has not assigned subjects");
             }
-            subjectExsisting=0;
+            subjectExsisting = 0;
         }
     }
 
     private static void valueOfAssessmentsCheck(ArrayList listOfStudentAssessments) throws userException {
-        for(int index=0;index<listOfStudentAssessments.size();index++){
-            if (((SubjectsBase) listOfStudentAssessments.get(index)).getAssessment()<0 || ((SubjectsBase) listOfStudentAssessments.get(index)).getAssessment()>10)
-                throw new userException("The subjext "+ ((SubjectsBase) listOfStudentAssessments.get(index)).getSubjectName()+" of student "
-                        +((SubjectsBase) listOfStudentAssessments.get(index)).getStudentName() + " has a value "+
-                        ((SubjectsBase) listOfStudentAssessments.get(index)).getAssessment() +" which is out of range 0-10");
+        for(Object studentAssessmnet:listOfStudentAssessments){
+            if(((SubjectsBase) studentAssessmnet).getAssessment()<0 || ((SubjectsBase) studentAssessmnet).getAssessment()>10){
+                throw new userException("The subjext "+ ((SubjectsBase) studentAssessmnet).getSubjectName()+" of student "
+                +((SubjectsBase) studentAssessmnet).getStudentName()+" has a value "
+                +((SubjectsBase) studentAssessmnet).getAssessment()+" which is out of range 0-10");
+            }
         }
     }
 
@@ -104,11 +108,11 @@ public class Main {
         listOfStudentAssessment .add(7 , new SubjectsBase("Oleg","Fitness",4));
         listOfStudentAssessment .add(8 , new SubjectsBase("Oleg","Russian Language",4));
 
-        listOfStudentAssessment .add(9 , new SubjectsBase("Natallia","Geography",9));
+        listOfStudentAssessment .add(9 , new SubjectsBase("Natallia","",9));
         listOfStudentAssessment .add(10 , new SubjectsBase("Natallia","Fitness",10));
         listOfStudentAssessment .add(11, new SubjectsBase("Natallia","Russian Language",9));
 
-        listOfStudentAssessment .add(9 , new SubjectsBase("Vitalik","Geography",7));
+        listOfStudentAssessment .add(9 , new SubjectsBase("Vitalik","",7));
         listOfStudentAssessment .add(10 , new SubjectsBase("Vitalik","Fitness",8));
         listOfStudentAssessment .add(11, new SubjectsBase("Vitalik","Russian Language",7));
         return listOfStudentAssessment;
@@ -177,8 +181,8 @@ public class Main {
     private static void averageOfAssessmentAroundUniversity(ArrayList listOfStudentAssessments) {
         Double overalSumme=0.0;
         int count=0;
-        for(int index=0;index<listOfStudentAssessments.size();index++){
-            overalSumme = overalSumme + ((SubjectsBase) listOfStudentAssessments.get(index)).getAssessment();
+        for(Object studentAssessment:listOfStudentAssessments){
+            overalSumme = overalSumme + ((SubjectsBase) studentAssessment).getAssessment();
             count++;
         }
         System.out.println("An average assessment of all subjects around the University is: "+overalSumme/count);
@@ -193,14 +197,21 @@ public class Main {
         String selectedGroup = studentAssignment(listOfGroup);
         Double averageAssessment = 0.0;
         int count=0;
-        for (int index=0;index<listOfStudent.size();index++){
-            if (((Student) listOfStudent.get(index)).getFaculty().contains(selectedFaculty) && ((Student) listOfStudent.get(index)).getGroup().contains(selectedGroup))
-                for (int indexStudentAssessments=0;indexStudentAssessments<listOfStudentAssessments.size();indexStudentAssessments++){
-                    if (((SubjectsBase) listOfStudentAssessments.get(indexStudentAssessments)).getSubjectName().contains(selectedSubject)) {
-                        averageAssessment = averageAssessment + ((SubjectsBase) listOfStudentAssessments.get(indexStudentAssessments)).getAssessment();
-                        count++;
+        for(Object student:listOfStudent){
+            System.out.println(selectedSubject+"+"+selectedFaculty+"+"+selectedGroup);
+            if(((Student) student).getFaculty().contains(selectedFaculty)){
+                if(((Student) student).getGroup().equals(selectedGroup)) {
+                    System.out.println(((Student) student).getFaculty()+"="+selectedFaculty+"; "+((Student) student).getGroup()+"="+selectedGroup);
+                    for (Object studentAssessment : listOfStudentAssessments) {
+                        if (((SubjectsBase) studentAssessment).getSubjectName().contentEquals(selectedSubject) &
+                                ((Student) student).getStudentFullName().contentEquals(((SubjectsBase) studentAssessment).getStudentName())) {
+                            System.out.println(((SubjectsBase) studentAssessment).getStudentName());
+                            averageAssessment = averageAssessment + ((SubjectsBase) studentAssessment).getAssessment();
+                            count++;
+                        }
                     }
                 }
+            }
         }
         System.out.println("The average assessment of "+selectedSubject+" subject "+" of "+selectedFaculty+" faculty of "+selectedGroup+" group is: "+averageAssessment/count);
     }
@@ -212,11 +223,11 @@ public class Main {
         System.out.println("");
         Double assessmentsSume = 0.0;
         int count =0;
-        for (int index=0;index<listOfStudentAssessments.size();index++){
-           if (((SubjectsBase) listOfStudentAssessments.get(index)).getStudentName().contains(selectedStudent)){
-               assessmentsSume = assessmentsSume + ((SubjectsBase) listOfStudentAssessments.get(index)).getAssessment();
-               count++;
-           }
+        for(Object studentAssessment:listOfStudentAssessments){
+            if(((SubjectsBase) studentAssessment).getStudentName().contentEquals(selectedStudent)){
+                assessmentsSume = assessmentsSume + ((SubjectsBase) studentAssessment).getAssessment();
+                count++;
+            }
         }
         System.out.println("An average assessment of all subjects: " + assessmentsSume/count);
     }
@@ -238,7 +249,6 @@ public class Main {
            }
         System.out.println(listOfElement);
         return listOfElement;
-     //  }
    }
     private static ArrayList manualStudentDataBaseInputting(ArrayList listOfFaculty, ArrayList listOfGroup, ArrayList listOfSubject) {
         ArrayList listOfStudent = new ArrayList();
@@ -314,9 +324,10 @@ public class Main {
             System.out.println("selected subject "+selectedSubject);
 
             boolean subjectExsiting=false;
-            for (int index=0;index<studentSubjectsAssessments.size();index++){
-                if ( ((SubjectsBase) studentSubjectsAssessments.get(index)).getStudentName().contains(studentName) &&
-                        ((SubjectsBase) studentSubjectsAssessments.get(index)).getSubjectName().contains(selectedSubject)) subjectExsiting=true;
+            for(Object studentAssessment:studentSubjectsAssessments){
+                if(((SubjectsBase) studentAssessment).getStudentName().contentEquals(studentName) &&
+                ((SubjectsBase) studentAssessment).getSubjectName().contentEquals(selectedSubject))
+                subjectExsiting=true;
             }
             if(subjectExsiting){
                 System.out.println("");
@@ -334,8 +345,8 @@ public class Main {
             studentSubjectsAssessments.add(subjectsBase);
 
             System.out.println("");
-            for (int index = 0; index<studentSubjectsAssessments.size();index++){
-                System.out.println((((SubjectsBase) studentSubjectsAssessments.get(index)).getSubjectName())+ " - " + ((SubjectsBase) studentSubjectsAssessments.get(index)).getAssessment());
+            for(Object studentAssessment:studentSubjectsAssessments){
+                System.out.println(((SubjectsBase) studentAssessment).getSubjectName()+" - "+((SubjectsBase) studentAssessment).getAssessment());
             }
             System.out.println("");
 
