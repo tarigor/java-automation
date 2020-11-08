@@ -1,0 +1,47 @@
+|__.idea
+   .gitignore
+   |__artifacts
+      JavaClassesMainTask_jar.xml
+   compiler.xml
+   jarRepositories.xml
+   misc.xml
+   modules.xml
+   vcs.xml
+   workspace.xml
+JavaClassesMainTask.iml
+|__out
+   |__production
+      |__JavaClassesMainTask
+         |__epam
+            |__learn
+               Customer.class
+               MainForCustomerTask.class
+         |__META-INF
+            JavaClassesMainTask.kotlin_module
+pom.xml
+README.md
+|__src
+   |__main
+      |__java
+         |__epam
+            |__learn
+               Customer.java
+               MainForCustomerTask.java
+      |__resources
+         |__META-INF
+            MANIFEST.MF
+   |__test
+      |__java
+|__target
+   |__classes
+      |__epam
+         |__learn
+            Customer.class
+            MainForCustomerTask.class
+      |__META-INF
+         MANIFEST.MF
+   |__generated-sources
+      |__annotations
+   JavaClassesMainTask.jar
+   |__META-INF
+      MANIFEST.MF
