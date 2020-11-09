@@ -1,47 +1,22 @@
-|__.idea
-   .gitignore
-   |__artifacts
-      JavaClassesMainTask_jar.xml
-   compiler.xml
-   jarRepositories.xml
-   misc.xml
-   modules.xml
-   vcs.xml
-   workspace.xml
-JavaClassesMainTask.iml
-|__out
-   |__production
-      |__JavaClassesMainTask
-         |__epam
-            |__learn
-               Customer.class
-               MainForCustomerTask.class
-         |__META-INF
-            JavaClassesMainTask.kotlin_module
-pom.xml
-README.md
-|__src
-   |__main
-      |__java
-         |__epam
-            |__learn
-               Customer.java
-               MainForCustomerTask.java
-      |__resources
-         |__META-INF
-            MANIFEST.MF
-   |__test
-      |__java
-|__target
-   |__classes
-      |__epam
-         |__learn
-            Customer.class
-            MainForCustomerTask.class
-      |__META-INF
-         MANIFEST.MF
-   |__generated-sources
-      |__annotations
-   JavaClassesMainTask.jar
-   |__META-INF
-      MANIFEST.MF
+aaa — копия (2) — копия.txt
+aaa — копия (2).txt
+aaa — копия (3) — копия.txt
+aaa — копия.txt
+|__f1
+   aaa — копия (2).txt
+   |__f11
+   |__f12
+      aaa — копия (4).txt
+|__f2
+   |__f21
+|__f3
+   |__f31
+      aaa — копия (2) — копия.txt
+      aaa — копия (6).txt
+   |__f32
+   |__f33
+      XНовый текстовый документ.txt
+      Новый текстовый документ — копия (2) — копия.txt
+      Новый текстовый документ — копия (2).txt
+      Новый текстовый документ — копия.txt
+xa     a.txt
