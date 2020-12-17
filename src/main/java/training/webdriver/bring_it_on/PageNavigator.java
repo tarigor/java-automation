@@ -1,10 +1,14 @@
 package training.webdriver.bring_it_on;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.util.function.Function;
 
 public class PageNavigator extends AbstractPage {
 
@@ -20,7 +24,7 @@ public class PageNavigator extends AbstractPage {
         return CODE_FIELD_TEXT;
     }
 
-    public static String getSYNTAX() {
+    public static final String getSYNTAX() {
         return SYNTAX;
     }
 
@@ -55,8 +59,11 @@ public class PageNavigator extends AbstractPage {
 
     public PageNavigator openPage() {
         driver.manage().window().maximize();
+
         driver.get(HOMEPAGE_URL);
+
         new WebDriverWait(driver, 10).until(CustomConditions.jQueryAJAXCompleted());
+
         return this;
     }
 
@@ -71,14 +78,16 @@ public class PageNavigator extends AbstractPage {
 
         titleField.sendKeys(TITLE_TEXT);
 
-        new WebDriverWait(driver, 15).until(CustomConditions.jQueryAJAXCompleted());
-
         return this;
     }
 
     public PageNavigator createRequest() {
         createButton.click();
+
+        new WebDriverWait(driver, 20).until(CustomConditions.jQueryAJAXCompleted());
+
+        driver.navigate().refresh();
+
         return this;
     }
-
 }

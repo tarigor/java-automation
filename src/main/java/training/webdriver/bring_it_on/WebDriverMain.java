@@ -1,9 +1,14 @@
 package training.webdriver.bring_it_on;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
@@ -19,12 +24,12 @@ public class WebDriverMain {
 
         System.setProperty("webdriver.edge.driver",webDriverPath+"\\msedgedriver.exe");
 
-        chromeDriver = StartScenarioOnBrowser(new ChromeDriver());
-//        firefoxDriver = StartScenarioOnBrowser(new FirefoxDriver());
+//        chromeDriver = StartScenarioOnBrowser(new ChromeDriver());
+        firefoxDriver = StartScenarioOnBrowser(new FirefoxDriver());
 //        edgeDriver = StartScenarioOnBrowser(new EdgeDriver());
 
-        testProcedure(chromeDriver);
-//        testProcedure(firefoxDriver);
+//        testProcedure(chromeDriver);
+        testProcedure(firefoxDriver);
 //        testProcedure(edgeDriver);
     }
 
