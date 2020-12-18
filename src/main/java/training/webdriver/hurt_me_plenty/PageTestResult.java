@@ -1,11 +1,9 @@
-package training.webdriver.bring_it_on;
+package training.webdriver.hurt_me_plenty;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 
 public class PageTestResult extends AbstractPage {
@@ -26,17 +24,17 @@ public class PageTestResult extends AbstractPage {
     }
 
     public Boolean checkCodeText() {
-        checkResult(codeText.getAttribute("value"),PageNavigator.getCodeFieldText(),codeText);
+
         return result;
     }
 
     public Boolean checkSyntaxHighlight() {
-        checkResult(syntaxHighlight.getText(),PageNavigator.getSYNTAX(),syntaxHighlight);
+
         return result;
     }
 
     public Boolean checkTitle() {
-        checkResult(driver.findElement(By.tagName("h1")).getText(),PageNavigator.getTitleText(),titleText);
+
         return result;
     }
 

@@ -5,6 +5,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -84,9 +85,9 @@ public class PageNavigator extends AbstractPage {
     public PageNavigator createRequest() {
         createButton.click();
 
-        new WebDriverWait(driver, 20).until(CustomConditions.jQueryAJAXCompleted());
+        new WebDriverWait(driver, 20).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@class='textarea']")));
 
-        driver.navigate().refresh();
+        System.out.println("URL: "+driver.getCurrentUrl());
 
         return this;
     }
