@@ -26,3 +26,11 @@
 [1218/095513.897:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
 [1218/100827.597:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
 [1218/105720.201:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1218/224202.264:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1218/225930.326:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1218/231520.399:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1219/101838.783:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1219/163207.364:ERROR:file_io_win.cc(171)] CreateFile C:\Users\Admin\AppData\Local\Temp\scoped_dir7360_1064481263\Crashpad\reports\362f7799-a348-4c98-904c-6ffd5bc4cc55.dmp: The system cannot find the path specified. (0x3)
+[1219/163207.364:ERROR:file_io_win.cc(171)] CreateFile C:\Users\Admin\AppData\Local\Temp\scoped_dir7360_1064481263\Crashpad\reports\9e116a13-b1d0-4c8c-9660-695649a0039d.dmp: The system cannot find the path specified. (0x3)
+[1219/163207.365:ERROR:crash_report_exception_handler.cc(99)] PrepareNewCrashReport failed
+[1219/163207.369:ERROR:crash_report_exception_handler.cc(99)] PrepareNewCrashReport failed

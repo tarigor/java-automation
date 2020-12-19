@@ -1,13 +1,16 @@
-package training.webdriver.hurt_me_plenty;
+package training.hurt_me_plenty;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
+import training.webdriver.hurt_me_plenty.PageNavigator;
+import training.webdriver.hurt_me_plenty.PageTestResult;
 
-public class WebDriverMain {
+public class WebDriverTest {
 
     String webDriverPath = System.getenv("WEBDRIVE_HOME");
 
@@ -19,12 +22,14 @@ public class WebDriverMain {
         System.setProperty("webdriver.edge.driver",webDriverPath+"\\msedgedriver.exe");
 
         chromeDriver = StartScenarioOnBrowser(new ChromeDriver());
-//        firefoxDriver = StartScenarioOnBrowser(new FirefoxDriver());
-//        edgeDriver = StartScenarioOnBrowser(new EdgeDriver());
+        firefoxDriver = StartScenarioOnBrowser(new FirefoxDriver());
+        edgeDriver = StartScenarioOnBrowser(new EdgeDriver());
 
-//        testProcedure(chromeDriver);
-//        testProcedure(firefoxDriver);
-//        testProcedure(edgeDriver);
+        testProcedure(chromeDriver);
+        testProcedure(firefoxDriver);
+        testProcedure(edgeDriver);
+
+
     }
 
     private static WebDriver StartScenarioOnBrowser(WebDriver driver){
@@ -38,17 +43,19 @@ public class WebDriverMain {
 
     private void testProcedure(WebDriver driver) {
         PageTestResult testPage = new PageTestResult(driver);
-        Assert.assertTrue(testPage.checkCodeText(),driver.toString()+": FAIL:The text code does not incorporate");
-        Assert.assertTrue(testPage.checkSyntaxHighlight(),driver.toString()+": FAIL:The highlight of syntax is not correct");
-        Assert.assertTrue(testPage.checkTitle(),driver.toString()+ ": FAIL:The text of title does not incorporate");
+        Assert.assertTrue(testPage.checkVMClass(),driver.toString()+": FAIL: for VM Class check");
+        Assert.assertTrue(testPage.checkInstanceType(),driver.toString()+": FAIL: for Instance Type check");
+        Assert.assertTrue(testPage.checkRegion(),driver.toString()+": FAIL: for Region check");
+        Assert.assertTrue(testPage.checkSSD(),driver.toString()+": FAIL: for SSD capacity check");
+        Assert.assertTrue(testPage.checkUsage(),driver.toString()+": FAIL: for Usage term check");
     }
 
     @AfterMethod (alwaysRun = true)
     public void afterTestCompleted(){
 
-//        driverQuit(chromeDriver);
-//        driverQuit(firefoxDriver);
-//        driverQuit(edgeDriver);
+        driverQuit(chromeDriver);
+        driverQuit(firefoxDriver);
+        driverQuit(edgeDriver);
 
     }
 
