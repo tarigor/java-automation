@@ -1,4 +1,4 @@
-package training.webdriver.i_can_win;
+package training.i_can_win;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -6,6 +6,7 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
+import training.webdriver.i_can_win.PageNavigator;
 
 public class WebDriverMain {
 

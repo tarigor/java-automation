@@ -1,19 +1,15 @@
-package training.webdriver.bring_it_on;
+package training.hardcore;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxOptions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
+import training.webdriver.hardcore.EmailPageNavigator;
+import training.webdriver.hardcore.HomePageNavigator;
+import training.webdriver.hardcore.PageTestResult;
 
-public class WebDriverMain {
+public class WebDriverTest {
 
     String webDriverPath = System.getenv("WEBDRIVE_HOME");
 
@@ -31,13 +27,24 @@ public class WebDriverMain {
 //        testProcedure(chromeDriver);
         testProcedure(firefoxDriver);
 //        testProcedure(edgeDriver);
+
+    }
+
+    private static WebDriver StartScenarioOnBrowser(WebDriver driver){
+        new HomePageNavigator(driver)
+                .openPage()
+                .searchForElementAndClick()
+                .fillSiteForm()
+                .createRequest()
+                .openEmailSiteAndTakeEmailName()
+                .sendEmail()
+                .verifyCostInEmail();
+        return driver;
     }
 
     private void testProcedure(WebDriver driver) {
-        PageTestResult testPage = new PageTestResult(driver);
-        Assert.assertTrue(testPage.checkCodeText(),driver.toString()+": FAIL:The text code does not incorporate");
-        Assert.assertTrue(testPage.checkSyntaxHighlight(),driver.toString()+": FAIL:The highlight of syntax is not correct");
-        Assert.assertTrue(testPage.checkTitle(),driver.toString()+ ": FAIL:The text of title does not incorporate");
+        System.out.println("result(assert method): "+ PageTestResult.result);
+        Assert.assertTrue(PageTestResult.result,driver.toString()+": FAIL: email address is not equal");
     }
 
     @AfterMethod (alwaysRun = true)
@@ -53,13 +60,4 @@ public class WebDriverMain {
         driver.quit();
         driver = null;
     }
-
-    private static WebDriver StartScenarioOnBrowser(WebDriver driver){
-        new PageNavigator(driver)
-                .openPage()
-                .fillSiteForm()
-                .createRequest();
-        return driver;
-    }
-
 }
