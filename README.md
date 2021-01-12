@@ -10,7 +10,7 @@ STAGE1
 -collections(main)
 
 STAGE2
--erroAndExceptions(main)
+-errorAndExceptions(main)
 -javaIO(main)
 -threads(main)
 -webdriver(main/test)
