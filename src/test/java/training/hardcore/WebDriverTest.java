@@ -5,7 +5,6 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
-import training.webdriver.hardcore.EmailPageNavigator;
 import training.webdriver.hardcore.HomePageNavigator;
 import training.webdriver.hardcore.PageTestResult;
 
@@ -47,7 +46,7 @@ public class WebDriverTest {
         Assert.assertTrue(PageTestResult.result,driver.toString()+": FAIL: email address is not equal");
     }
 
-    @AfterMethod (alwaysRun = true)
+    @AfterMethod(alwaysRun = true)
     public void afterTestCompleted(){
 
 //        driverQuit(chromeDriver);

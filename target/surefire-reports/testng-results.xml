@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="All Test Suite" duration-ms="87229" started-at="2021-01-12T16:49:00Z" finished-at="2021-01-12T16:50:27Z">
+    <groups>
+    </groups>
+    <test name="C:/Users/Admin/learning/src/test/java/training/framework/test/WebDriverTest.java" duration-ms="87229" started-at="2021-01-12T16:49:00Z" finished-at="2021-01-12T16:50:27Z">
+      <class name="training.framework.test.WebDriverTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:training.framework.test.WebDriverTest@3551a94]" name="setUp" is-config="true" duration-ms="14358" started-at="2021-01-12T16:49:00Z" finished-at="2021-01-12T16:49:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="scenarioTest()[pri:0, instance:training.framework.test.WebDriverTest@3551a94]" name="scenarioTest" duration-ms="64166" started-at="2021-01-12T16:49:14Z" description="test" finished-at="2021-01-12T16:50:19Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- scenarioTest -->
+        <test-method status="PASS" signature="stopBrowser()[pri:0, instance:training.framework.test.WebDriverTest@3551a94]" name="stopBrowser" is-config="true" duration-ms="8644" started-at="2021-01-12T16:50:19Z" finished-at="2021-01-12T16:50:27Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- stopBrowser -->
+      </class> <!-- training.framework.test.WebDriverTest -->
+    </test> <!-- C:/Users/Admin/learning/src/test/java/training/framework/test/WebDriverTest.java -->
+  </suite> <!-- All Test Suite -->
+</testng-results>
