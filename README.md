@@ -18,7 +18,10 @@ STAGE2
 -------------------------------
 notes to "framework" task->
 parameters to start mvn project:
--Dbrowser={chrome||firefox||edge||} // (select one of)
--Denvironmnet={qa||dev} // (select one of)
+-Dbrowser={param1}
+-Denvironmnet={param2}
 -Dsurefire.suiteXmlFiles=src\test\resources\testng-all.xml
+
+param1: chrome | firefox | edge
+param2: qa | dev
 -----------------------------------
