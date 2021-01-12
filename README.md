@@ -2,16 +2,21 @@
 All tasks in one of Java Automation course stage 1 and 2
 
 List of tasks:
+
+STAGE1
+-fundamentals(main)
 -classes(main)
--cleancode(main)
+-cleancode(main/test)
 -collections(main)
--erroAndExceptins(main)
+
+STAGE2
+-erroAndExceptions(main)
 -javaIO(main)
 -threads(main)
 -webdriver(main/test)
--fundamentals(test)
+-framework(main/test)
 -------------------------------
-notes to "fundamentals" task->
+notes to "framework" task->
 parameters to start mvn project:
 -Dbrowser={chrome||firefox||edge||}
 -Denvironmnet={qa||dev}
