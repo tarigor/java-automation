@@ -14,11 +14,11 @@ STAGE2
 -javaIO(main)
 -threads(main)
 -webdriver(main/test)
--framework(main/test)
+-framework(test)
 -------------------------------
 notes to "framework" task->
 parameters to start mvn project:
--Dbrowser={chrome||firefox||edge||}
--Denvironmnet={qa||dev}
--Dsurefire.suiteXmlFiles={src\test\resources\testng-all.xml}
+-Dbrowser={chrome||firefox||edge||} // (select one of)
+-Denvironmnet={qa||dev} // (select one of)
+-Dsurefire.suiteXmlFiles=src\test\resources\testng-all.xml
 -----------------------------------
