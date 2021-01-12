@@ -1,4 +1,4 @@
-package training.hardcore;
+package training.webdriver.hardcore;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;

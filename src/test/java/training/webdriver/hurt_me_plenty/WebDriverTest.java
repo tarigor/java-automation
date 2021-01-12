@@ -1,4 +1,4 @@
-package training.hurt_me_plenty;
+package training.webdriver.hurt_me_plenty;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;

@@ -1,4 +1,4 @@
-package training.bring_it_on;
+package training.webdriver.bring_it_on;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.PageLoadStrategy;

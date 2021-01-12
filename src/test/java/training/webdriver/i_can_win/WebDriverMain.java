@@ -1,4 +1,4 @@
-package training.i_can_win;
+package training.webdriver.i_can_win;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;

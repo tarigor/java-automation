@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" verbose="0" name="Failed suite [All Test Suite]">
+  <test thread-count="5" verbose="0" name="C:/Users/Admin/learning/src/test/java/training/framework/test/WebDriverTest.java(failed)">
+    <classes>
+      <class name="training.framework.test.WebDriverTest">
+        <methods>
+          <include name="scenarioTest"/>
+          <include name="stopBrowser"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- training.framework.test.WebDriverTest -->
+    </classes>
+  </test> <!-- C:/Users/Admin/learning/src/test/java/training/framework/test/WebDriverTest.java(failed) -->
+</suite> <!-- Failed suite [All Test Suite] -->

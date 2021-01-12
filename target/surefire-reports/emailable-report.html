@@ -9,10 +9,63 @@
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
 <tr><th colspan="7">All Test Suite</th></tr>
-<tr><td><a href="#t0">C:/Users/Admin/learning/src/test/java/training/framework/test/WebDriverTest.java</a></td><td class="num">1</td><td class="num">0</td><td class="num">0</td><td class="num">87,229</td><td></td><td></td></tr>
+<tr><td><a href="#t0">C:/Users/Admin/learning/src/test/java/training/framework/test/WebDriverTest.java</a></td><td class="num">0</td><td class="num">0</td><td class="num attn">1</td><td class="num">87,140</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">All Test Suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">C:/Users/Admin/learning/src/test/java/training/framework/test/WebDriverTest.java &#8212; passed</th></tr><tr class="passedeven"><td rowspan="1">training.framework.test.WebDriverTest</td><td><a href="#m0">scenarioTest</a></td><td rowspan="1">1610470154983</td><td rowspan="1">64166</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">All Test Suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">C:/Users/Admin/learning/src/test/java/training/framework/test/WebDriverTest.java &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">training.framework.test.WebDriverTest</td><td><a href="#m0">scenarioTest</a></td><td rowspan="1">1610474560761</td><td rowspan="1">61385</td></tr></tbody>
 </table>
-<h2>C:/Users/Admin/learning/src/test/java/training/framework/test/WebDriverTest.java</h2><h3 id="m0">training.framework.test.WebDriverTest#scenarioTest</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h2>C:/Users/Admin/learning/src/test/java/training/framework/test/WebDriverTest.java</h2><h3 id="m0">training.framework.test.WebDriverTest#scenarioTest</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element &lt;iframe src=&quot;/products/calculator/index_ad8ca20a6d1799e286a0c0839aeb86ca523afe927b04501d8ba77dc59e5b8523.frame&quot; allowfullscreen=&quot;&quot; name=&quot;goog_1824756588&quot; cd_frame_id_=&quot;86a18a1da33d6ff12127564a294715f4&quot;&gt;&lt;/iframe&gt; is not clickable at point (280, 102). Other element would receive the click: &lt;a href=&quot;//console.cloud.google.com/freetrial&quot; class=&quot;cloud-free-trial-button cta-button-primary button-primary button cloud-button cloud-button--primary
+      &quot; track-metadata-eventdetail=&quot;nav&quot; track-metadata-position=&quot;nav&quot; data-overflow=&quot;devsite-top-logo-row&quot; track-type=&quot;freeTrial&quot; data-overflow-class=&quot;devsite-header-link devsite-top-button button cloud-free-trial-button cloud-free-trial-enabled cloud-button cloud-button--primary&quot; data-overflow-container=&quot;right&quot; track-name=&quot;gcpCta&quot;&gt;...&lt;/a&gt;
+  (Session info: chrome=87.0.4280.141)
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;DESKTOP-6P8D5VU&apos;, ip: &apos;192.168.133.138&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_162&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 87.0.4280.141, chrome: {chromedriverVersion: 87.0.4280.88 (89e2380a3e36c..., userDataDir: C:\Users\Admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:54431}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
+Session ID: e59fcb05ce96bf91f4864a9bd5971ccd
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:84)
+	at training.framework.page.HomePageNavigator.spanOptionHandling(HomePageNavigator.java:166)
+	at training.framework.page.HomePageNavigator.fillSiteForm(HomePageNavigator.java:114)
+	at training.framework.test.WebDriverTest.StartScenarioOnBrowser(WebDriverTest.java:25)
+	at training.framework.test.WebDriverTest.scenarioTest(WebDriverTest.java:15)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:283)
+	at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:75)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:120)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:384)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:345)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:126)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:418)
+</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>

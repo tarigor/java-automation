@@ -1,4 +1,17 @@
 -------------------------------------------------------------------------------
 Test set: TestSuite
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 89.619 s - in TestSuite
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 90.642 s <<< FAILURE! - in TestSuite
+scenarioTest(training.framework.test.WebDriverTest)  Time elapsed: 62.231 s  <<< FAILURE!
+org.openqa.selenium.ElementClickInterceptedException: 
+element click intercepted: Element <iframe src="/products/calculator/index_ad8ca20a6d1799e286a0c0839aeb86ca523afe927b04501d8ba77dc59e5b8523.frame" allowfullscreen="" name="goog_1824756588" cd_frame_id_="86a18a1da33d6ff12127564a294715f4"></iframe> is not clickable at point (280, 102). Other element would receive the click: <a href="//console.cloud.google.com/freetrial" class="cloud-free-trial-button cta-button-primary button-primary button cloud-button cloud-button--primary
+      " track-metadata-eventdetail="nav" track-metadata-position="nav" data-overflow="devsite-top-logo-row" track-type="freeTrial" data-overflow-class="devsite-header-link devsite-top-button button cloud-free-trial-button cloud-free-trial-enabled cloud-button cloud-button--primary" data-overflow-container="right" track-name="gcpCta">...</a>
+  (Session info: chrome=87.0.4280.141)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-6P8D5VU', ip: '192.168.133.138', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_162'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 87.0.4280.141, chrome: {chromedriverVersion: 87.0.4280.88 (89e2380a3e36c..., userDataDir: C:\Users\Admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:54431}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
+Session ID: e59fcb05ce96bf91f4864a9bd5971ccd
+	at training.framework.test.WebDriverTest.StartScenarioOnBrowser(WebDriverTest.java:25)
+	at training.framework.test.WebDriverTest.scenarioTest(WebDriverTest.java:15)
+
