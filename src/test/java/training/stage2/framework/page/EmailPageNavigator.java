@@ -41,7 +41,7 @@ public class EmailPageNavigator extends AbstractPage {
     }
 
     private String getCostValueFromEmail() {
-        new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(emailBody));
+        new WebDriverWait(driver, 20).until(ExpectedConditions.visibilityOf(emailBody));
 
         bodyText = emailBody.getText().split(":");
         bodyText = bodyText[2].split(" ");
