@@ -30,11 +30,11 @@ public class Main {
         int facultyExisting=0;
         for (Object student:listOfStudent) {
             for(Object faculty: listOfFaculty){
-                if (((Student) student).getFaculty().contentEquals(faculty.toString()));
+                if (((Student) student).getFaculty().contentEquals(faculty.toString()))
                 facultyExisting++;
             }
-            if(facultyExisting==0) throw new userException ("There is no faculty assigned for student "
-                    + ((Student) student).getStudentFullName());
+            if(facultyExisting==0) throw new userException ("There are no faculties assigned for the University");
+
             facultyExisting=0;
         }
 
@@ -48,8 +48,7 @@ public class Main {
                 if(((Student) student).getGroup().contentEquals(group.toString()))
                     groupExisting++;
             }
-            if (groupExisting==0) throw new userException("There is no group assigned for student "+ ((Student) student).getStudentFullName()
-                    +" of faculty "+((Student) student).getFaculty());
+            if (groupExisting==0) throw new userException("There are no groups assigned for students of faculty "+((Student) student).getFaculty());
             groupExisting=0;
         }
     }
@@ -58,7 +57,7 @@ public class Main {
         int groupAssigned=0;
         for(Object group:listOfGroup){
             for(Object student:listOfStudent){
-                if(group.toString().contentEquals(((Student) student).getGroup()))
+                if(group.toString().contains(((Student) student).getGroup()))
                     groupAssigned++;
             }
             if (groupAssigned==0) throw new userException("There are no students assigned to group "+group.toString());
@@ -78,7 +77,7 @@ public class Main {
                 }
             }
             if (subjectExsisting == 0) {
-                throw new userException("The student " + ((Student) student).getStudentFullName() + " has not assigned subjects");
+                throw new userException("The student " + ((Student) student).getStudentFullName() + " has not assigned any subjects");
             }
             subjectExsisting = 0;
         }
