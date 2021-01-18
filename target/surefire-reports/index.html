@@ -102,7 +102,7 @@
                     <div class="method-list-content failed suite-All_Test_Suite">
                       <span>
                         <img width="3%" src="failed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-All_Test_Suite" title="training.framework.test.WebDriverTest" hash-for-method="scenarioTest">scenarioTest</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-All_Test_Suite" title="training.stage2.framework.test.WebDriverTest" hash-for-method="scenarioTest">scenarioTest</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content failed suite-All_Test_Suite -->
@@ -120,7 +120,7 @@
           <div class="suite-All_Test_Suite-class-failed">
             <div class="main-panel-header rounded-window-top">
               <img src="failed.png"/>
-              <span class="class-name">training.framework.test.WebDriverTest</span>
+              <span class="class-name">training.stage2.framework.test.WebDriverTest</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
@@ -128,14 +128,12 @@
                   <a name="scenarioTest">
                   </a> <!-- scenarioTest -->
                   <span class="method-name">scenarioTest</span>
-                  <div class="stack-trace">org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element &lt;iframe src=&quot;/products/calculator/index_ad8ca20a6d1799e286a0c0839aeb86ca523afe927b04501d8ba77dc59e5b8523.frame&quot; allowfullscreen=&quot;&quot; name=&quot;goog_1824756588&quot; cd_frame_id_=&quot;86a18a1da33d6ff12127564a294715f4&quot;&gt;&lt;/iframe&gt; is not clickable at point (280, 102). Other element would receive the click: &lt;a href=&quot;//console.cloud.google.com/freetrial&quot; class=&quot;cloud-free-trial-button cta-button-primary button-primary button cloud-button cloud-button--primary
-      &quot; track-metadata-eventdetail=&quot;nav&quot; track-metadata-position=&quot;nav&quot; data-overflow=&quot;devsite-top-logo-row&quot; track-type=&quot;freeTrial&quot; data-overflow-class=&quot;devsite-header-link devsite-top-button button cloud-free-trial-button cloud-free-trial-enabled cloud-button cloud-button--primary&quot; data-overflow-container=&quot;right&quot; track-name=&quot;gcpCta&quot;&gt;...&lt;/a&gt;
-  (Session info: chrome=87.0.4280.141)
+                  <div class="stack-trace">org.openqa.selenium.ElementClickInterceptedException: Element &lt;div class=&quot;md-container md-ink-ripple&quot;&gt; is not clickable at point (76,748) because another element &lt;md-option id=&quot;select_option_360&quot; class=&quot;ng-scope md-ink-ripple&quot;&gt; obscures it
 Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
 System info: host: &apos;DESKTOP-6P8D5VU&apos;, ip: &apos;192.168.133.138&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_162&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 87.0.4280.141, chrome: {chromedriverVersion: 87.0.4280.88 (89e2380a3e36c..., userDataDir: C:\Users\Admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:54431}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
-Session ID: e59fcb05ce96bf91f4864a9bd5971ccd
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 84.0.2, javascriptEnabled: true, moz:accessibilityChecks: false, moz:buildID: 20210105180113, moz:geckodriverVersion: 0.29.0, moz:headless: false, moz:processID: 6348, moz:profile: C:\Users\Admin\AppData\Loca..., moz:shutdownTimeout: 60000, moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, platformVersion: 10.0, rotatable: false, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 57b5df38-a678-4f64-bdbd-60c23a607505
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
 	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -148,10 +146,16 @@ Session ID: e59fcb05ce96bf91f4864a9bd5971ccd
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
 	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
 	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:84)
-	at training.framework.page.HomePageNavigator.spanOptionHandling(HomePageNavigator.java:166)
-	at training.framework.page.HomePageNavigator.fillSiteForm(HomePageNavigator.java:114)
-	at training.framework.test.WebDriverTest.StartScenarioOnBrowser(WebDriverTest.java:25)
-	at training.framework.test.WebDriverTest.scenarioTest(WebDriverTest.java:15)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
+	at com.sun.proxy.$Proxy24.click(Unknown Source)
+	at training.stage2.framework.page.HomePageNavigator.checkBoxHandling(HomePageNavigator.java:161)
+	at training.stage2.framework.page.HomePageNavigator.fillSiteForm(HomePageNavigator.java:114)
+	at training.stage2.framework.test.WebDriverTest.StartScenarioOnBrowser(WebDriverTest.java:21)
+	at training.stage2.framework.test.WebDriverTest.scenarioTest(WebDriverTest.java:14)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -199,15 +203,15 @@ Session ID: e59fcb05ce96bf91f4864a9bd5971ccd
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
 &lt;suite guice-stage=&quot;DEVELOPMENT&quot; verbose=&quot;0&quot; name=&quot;All Test Suite&quot;&gt;
-  &lt;test thread-count=&quot;5&quot; verbose=&quot;2&quot; name=&quot;C:/Users/Admin/learning/src/test/java/training/framework/test/WebDriverTest.java&quot;&gt;
+  &lt;test thread-count=&quot;5&quot; verbose=&quot;2&quot; name=&quot;C:/Users/Admin/learning/src/test/java/training/stage2/framework/test/WebDriverTest.java&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;training.framework.test.WebDriverTest&quot;&gt;
+      &lt;class name=&quot;training.stage2.framework.test.WebDriverTest&quot;&gt;
         &lt;methods&gt;
           &lt;include name=&quot;scenarioTest&quot;/&gt;
         &lt;/methods&gt;
-      &lt;/class&gt; &lt;!-- training.framework.test.WebDriverTest --&gt;
+      &lt;/class&gt; &lt;!-- training.stage2.framework.test.WebDriverTest --&gt;
     &lt;/classes&gt;
-  &lt;/test&gt; &lt;!-- C:/Users/Admin/learning/src/test/java/training/framework/test/WebDriverTest.java --&gt;
+  &lt;/test&gt; &lt;!-- C:/Users/Admin/learning/src/test/java/training/stage2/framework/test/WebDriverTest.java --&gt;
 &lt;/suite&gt; &lt;!-- All Test Suite --&gt;
             </pre>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -219,7 +223,7 @@ Session ID: e59fcb05ce96bf91f4864a9bd5971ccd
           <div class="main-panel-content rounded-window-bottom">
             <ul>
               <li>
-                <span class="test-name">C:/Users/Admin/learning/src/test/java/training/framework/test/WebDriverTest.java (1 class)</span>
+                <span class="test-name">C:/Users/Admin/learning/src/test/java/training/stage2/framework/test/WebDriverTest.java (1 class)</span>
               </li>
             </ul>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -248,13 +252,13 @@ data.addColumn('number', 'Time (ms)');
 data.addRows(1);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'scenarioTest')
-data.setCell(0, 2, 'training.framework.test.WebDriverTest')
-data.setCell(0, 3, 61385);
+data.setCell(0, 2, 'training.stage2.framework.test.WebDriverTest')
+data.setCell(0, 3, 39150);
 window.suiteTableData['All_Test_Suite']= { tableData: data, tableDiv: 'times-div-All_Test_Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 1 minutes</span>
+              <span class="suite-total-time">Total running time: 39 seconds</span>
               <div id="times-div-All_Test_Suite">
               </div> <!-- times-div-All_Test_Suite -->
             </div> <!-- times-div -->
@@ -280,7 +284,7 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">training.framework.test.WebDriverTest</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">training.stage2.framework.test.WebDriverTest</div> <!-- chronological-class-name -->
               <div class="configuration-method before">
                 <span class="method-name">setUp</span>
                 <span class="method-start">0 ms</span>
@@ -289,11 +293,11 @@ return data;
                 <img src="failed.png">
                 </img>
                 <span class="method-name">scenarioTest</span>
-                <span class="method-start">10517 ms</span>
+                <span class="method-start">11815 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">stopBrowser</span>
-                <span class="method-start">72459 ms</span>
+                <span class="method-start">51711 ms</span>
               </div> <!-- configuration-method after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
