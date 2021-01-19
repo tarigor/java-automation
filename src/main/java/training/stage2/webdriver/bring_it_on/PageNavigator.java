@@ -18,6 +18,26 @@ public class PageNavigator extends AbstractPage {
     private static final String EXPIRATION_TIME = "10 Minutes";
     private static final String SYNTAX = "Bash";
     private static final String TITLE_TEXT = "how to gain dominance among developers";
+    @FindBy(xpath = "//*[@id='postform-text']")
+    private WebElement codeDescriptionField;
+    @FindBy(xpath = "//*[@id='select2-postform-expiration-container']")
+    private WebElement pasteExpirationField;
+    @FindBy(xpath = "//*[@class='select2-results__option' and text()='" + EXPIRATION_TIME + "']")
+    private WebElement pasteExpirationFieldSelect;
+    @FindBy(xpath = "//*[@class='select2-selection__rendered']")
+    private WebElement syntaxHighlightComboBox;
+    @FindBy(xpath = "//*[@class='select2-results__option' and text()='" + SYNTAX + "']")
+    private WebElement syntaxHighlightComboBoxSelect;
+    @FindBy(xpath = "//*[@id='postform-name']")
+    private WebElement titleField;
+    @FindBy(xpath = "//*[@class='btn -big']")
+    private WebElement createButton;
+    @FindBy(xpath = "//*[contains(@class,'bsa_fixed')]//*[text()='x']")
+    private WebElement bannerCloseButton;
+
+    public PageNavigator(WebDriver driver) {
+        super(driver);
+    }
 
     public static String getCodeFieldText() {
         return CODE_FIELD_TEXT;
@@ -29,31 +49,6 @@ public class PageNavigator extends AbstractPage {
 
     public static String getTitleText() {
         return TITLE_TEXT;
-    }
-
-    @FindBy(xpath = "//*[@id='postform-text']")
-    private WebElement codeDescriptionField;
-
-    @FindBy(xpath = "//*[@id='select2-postform-expiration-container']")
-    private WebElement pasteExpirationField;
-
-    @FindBy(xpath = "//*[@class='select2-results__option' and text()='"+EXPIRATION_TIME+"']")
-    private WebElement pasteExpirationFieldSelect;
-
-    @FindBy(xpath = "//*[@class='select2-selection__rendered']")
-    private WebElement syntaxHighlightComboBox;
-
-    @FindBy(xpath = "//*[@class='select2-results__option' and text()='"+SYNTAX+"']")
-    private WebElement syntaxHighlightComboBoxSelect;
-
-    @FindBy(xpath = "//*[@id='postform-name']")
-    private WebElement titleField;
-
-    @FindBy(xpath = "//*[@class='btn -big']")
-    private WebElement createButton;
-
-    public PageNavigator(WebDriver driver) {
-        super(driver);
     }
 
     public PageNavigator openPage() {
@@ -82,6 +77,8 @@ public class PageNavigator extends AbstractPage {
 
     public PageNavigator createRequest() {
 
+        if (bannerCloseButton.isDisplayed()) bannerCloseButton.click();
+
         while (!createButton.isDisplayed()) {
             new Actions(driver).sendKeys(Keys.DOWN);
         }
@@ -89,7 +86,7 @@ public class PageNavigator extends AbstractPage {
 
         new WebDriverWait(driver, 20).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@class='textarea']")));
 
-        System.out.println("URL: "+driver.getCurrentUrl());
+        System.out.println("URL: " + driver.getCurrentUrl());
 
         return this;
     }

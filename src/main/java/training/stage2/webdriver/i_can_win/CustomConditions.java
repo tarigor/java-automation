@@ -10,7 +10,7 @@ public class CustomConditions {
 
             @Override
             public Boolean apply(WebDriver driver) {
-                return (Boolean) ((JavascriptExecutor) driver).executeScript("return (window.jQuery != null) && (jQuery.active === 0); ");
+                return ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete");
             }
         };
     }

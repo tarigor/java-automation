@@ -11,12 +11,11 @@ import java.util.ArrayList;
 
 public class EmailPageNavigator extends AbstractPage {
 
-    private String urlName;
+    static String costValueFromEmail;
     String emailName;
     String estimatedCost;
-    static String costValueFromEmail;
     String[] bodyText;
-
+    private String urlName;
     @FindBy(xpath = "//span[@class='email']")
     private WebElement xpathEmailNameField;
 

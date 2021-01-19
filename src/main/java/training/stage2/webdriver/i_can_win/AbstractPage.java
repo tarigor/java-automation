@@ -7,10 +7,10 @@ public abstract class AbstractPage {
 
     protected WebDriver driver;
 
-    protected abstract AbstractPage openPage();
-
-    protected AbstractPage(WebDriver driver){
+    protected AbstractPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
+
+    protected abstract AbstractPage openPage();
 }

@@ -2,7 +2,7 @@ package training.stage1.cleancode.Planes;
 
 import java.util.Objects;
 
-public class PassengerPlane extends Plane{
+public class PassengerPlane extends Plane {
 
     //=================FIELDS=================
     private int passengersCapacity;
@@ -23,7 +23,7 @@ public class PassengerPlane extends Plane{
     public String toString() {
         return super.toString().replace("}",
                 ", passengersCapacity=" + passengersCapacity +
-                '}');
+                        '}');
     }
 
     @Override

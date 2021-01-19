@@ -6,24 +6,23 @@ import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
-public class WebDriverMain {
+public class WebDriverTest {
 
-    String webDriverPath = System.getenv("WEBDRIVE_HOME");
+    WebDriver firefoxDriver;
 
-    WebDriver chromeDriver, firefoxDriver, edgeDriver;
+    private static WebDriver StartScenarioOnBrowser(WebDriver driver) {
+        new PageNavigator(driver)
+                .openPage()
+                .fillSiteForm()
+                .createRequest();
+        return driver;
+    }
 
-    @Test(description = "test")
+    @Test(description = "test2")
     public void scenarioTest() {
 
-        System.setProperty("webdriver.edge.driver", webDriverPath + "\\msedgedriver.exe");
-
-//        chromeDriver = StartScenarioOnBrowser(new ChromeDriver());
         firefoxDriver = StartScenarioOnBrowser(new FirefoxDriver());
-//        edgeDriver = StartScenarioOnBrowser(new EdgeDriver());
-
-//        testProcedure(chromeDriver);
         testProcedure(firefoxDriver);
-//        testProcedure(edgeDriver);
     }
 
     private void testProcedure(WebDriver driver) {
@@ -36,23 +35,12 @@ public class WebDriverMain {
     @AfterMethod(alwaysRun = true)
     public void afterTestCompleted() {
 
-//        driverQuit(chromeDriver);
         driverQuit(firefoxDriver);
-//        driverQuit(edgeDriver);
 
     }
 
     private void driverQuit(WebDriver driver) {
         driver.quit();
-        driver = null;
-    }
-
-    private static WebDriver StartScenarioOnBrowser(WebDriver driver) {
-        new PageNavigator(driver)
-                .openPage()
-                .fillSiteForm()
-                .createRequest();
-        return driver;
     }
 
 }

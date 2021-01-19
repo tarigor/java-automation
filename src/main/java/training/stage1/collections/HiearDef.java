@@ -1,17 +1,20 @@
 package training.stage1.collections;
 
-import java.io.*;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-public class HiearDef{
+public class HiearDef {
 
+    static HashMap<String, Integer> hierObj = new HashMap<>();
     private static String hierarchyName;
     private static String hierarhObjname;
     private static String objParam;
     private static String objNameParam;
-    static HashMap<String, Integer> hierObj = new HashMap<>();
 
     public static String getHierarchyName() {
         return hierarchyName;
@@ -27,10 +30,6 @@ public class HiearDef{
 
     public static void setObjNameParam(String objNameParam) {
         HiearDef.objNameParam = objNameParam;
-    }
-
-    public HashMap<String, Integer> getPeopleMap() {
-        return hierObj;
     }
 
     public static void hierNameRequest() {
@@ -66,19 +65,19 @@ public class HiearDef{
             String getAnswer = in.next();
 
             if (getAnswer.contains("yes")) {
-                endFlag = endFlag-3;
-                System.out.println(hierarchyName+" hierarchy is contains following objects (name="+objNameParam+"): " + hierObj);
+                endFlag = endFlag - 3;
+                System.out.println(hierarchyName + " hierarchy is contains following objects (name=" + objNameParam + "): " + hierObj);
 
                 File file = new File("src/main/java/training/collections/out/txt.txt");
                 BufferedWriter bf = null;
-                try{
+                try {
                     //create new BufferedWriter for the output file
-                    bf = new BufferedWriter( new FileWriter(file) );
+                    bf = new BufferedWriter(new FileWriter(file));
                     //iterate map entries
-                    for(Map.Entry<String, Integer> entry : hierObj.entrySet()){
+                    for (Map.Entry<String, Integer> entry : hierObj.entrySet()) {
 
                         //put key and value separated by a colon
-                        bf.write( entry.getKey() + ":" + entry.getValue() );
+                        bf.write(entry.getKey() + ":" + entry.getValue());
 
                         //new line
                         bf.newLine();
@@ -86,18 +85,25 @@ public class HiearDef{
 
                     bf.flush();
 
-                }catch(IOException e){
+                } catch (IOException e) {
                     e.printStackTrace();
-                }finally{
+                } finally {
 
-                    try{
+                    try {
                         //always close the writer
                         bf.close();
-                    }catch(Exception e){}
+                    } catch (Exception e) {
+                    }
                 }
 
+            } else {
+                continue;
             }
-            else{ continue;};
+            ;
         }
+    }
+
+    public HashMap<String, Integer> getPeopleMap() {
+        return hierObj;
     }
 }

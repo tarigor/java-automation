@@ -1,4 +1,4 @@
-    package training.stage2.webdriver.hurt_me_plenty;
+package training.stage2.webdriver.hurt_me_plenty;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 import java.util.List;
 
 
-    public class PageTestResult extends AbstractPage {
+public class PageTestResult extends AbstractPage {
 
     private Boolean result;
 
@@ -23,21 +23,21 @@ import java.util.List;
 
     public Boolean checkInstanceType() {
         String[] instance = PageNavigator.getFormInstanceType().split(" ");
-        System.out.println("instance: "+instance[0]);
+        System.out.println("instance: " + instance[0]);
         checkResult(instance[0]);
         return result;
     }
 
     public Boolean checkRegion() {
         String[] region = PageNavigator.getFormLocation().split(" ");
-        System.out.println("region: "+region[0]);
+        System.out.println("region: " + region[0]);
         checkResult(region[0]);
         return result;
     }
 
     public Boolean checkSSD() {
         String[] capacity = PageNavigator.getFormSsdCapacity().split(" ");
-        System.out.println("capacity: "+capacity[0]);
+        System.out.println("capacity: " + capacity[0]);
         checkResult(capacity[0]);
         return result;
     }
@@ -51,9 +51,9 @@ import java.util.List;
 
         List<WebElement> listOfWebElement = driver.findElements(By.xpath("//*[@class='md-list-item-text ng-binding']"));
 
-        for (WebElement list:listOfWebElement) {
-            if(list.getText().contains(textToCompare)) {
-                System.out.println("PASSED: ["+list.getText()+"] contains: "+textToCompare);
+        for (WebElement list : listOfWebElement) {
+            if (list.getText().contains(textToCompare)) {
+                System.out.println("PASSED: [" + list.getText() + "] contains: " + textToCompare);
                 result = true;
                 return;
             }

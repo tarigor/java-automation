@@ -14,14 +14,12 @@ import java.util.ArrayList;
 
 public class EmailPageNavigator extends AbstractPage {
 
+    static String costValueFromEmail;
     private final Logger logger = LogManager.getRootLogger();
-
-    private String urlName;
     String emailName;
     String estimatedCost;
-    static String costValueFromEmail;
     String[] bodyText;
-
+    private String urlName;
     @FindBy(xpath = "//span[@class='email']")
     private WebElement xpathEmailNameField;
 
@@ -42,11 +40,9 @@ public class EmailPageNavigator extends AbstractPage {
 
     private String getCostValueFromEmail() {
         new WebDriverWait(driver, 20).until(ExpectedConditions.visibilityOf(emailBody));
-
         bodyText = emailBody.getText().split(":");
         bodyText = bodyText[2].split(" ");
         costValueFromEmail = bodyText[0];
-
         return costValueFromEmail;
     }
 

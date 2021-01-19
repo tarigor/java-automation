@@ -19,11 +19,10 @@ import java.util.concurrent.TimeUnit;
 
 public class HomePageNavigator extends AbstractPage {
 
-    private final Logger logger = LogManager.getRootLogger();
-
     private static final String HOMEPAGE_URL = "https://cloud.google.com/";
     private static final String SEARCH_REQUEST = "Google Cloud Platform Pricing Calculator";
     private static final String EMAIL_GENERATOR_URL = "https://dropmail.me/en/";
+    private final Logger logger = LogManager.getRootLogger();
 
     String emailName;
     ArrayList<String> tabs;
@@ -34,9 +33,6 @@ public class HomePageNavigator extends AbstractPage {
 
     @FindBy(xpath = "//*[@class='gsc-results gsc-webResult']")
     private WebElement searchResultField;
-
-    @FindBy(xpath = "//*[@class='compute-engine-block']")
-    private WebElement elementOnCalculatorPage;
 
     @FindBy(xpath = "//md-input-container//label[contains(text(),'Number of instances')]/../input")
     private WebElement inputFieldNumberOfInstances;
@@ -104,23 +100,23 @@ public class HomePageNavigator extends AbstractPage {
         driver.switchTo().frame(driver.findElement(By.xpath("//*[@id='cloud-site']//iframe")));
         driver.switchTo().frame(driver.findElement(By.xpath("//iframe[@id='myFrame']")));
 
-        inputFieldHandling(inputFieldNumberOfInstances, testingSet.getForm_number_of_instance());
+        inputFieldHandling(inputFieldNumberOfInstances, testingSet.getFormNumberOfInstance());
 
-        spanOptionHandling("Operating System / Software", testingSet.getForm_os_type());
-        spanOptionHandling("Machine Class", testingSet.getForm_class_type());
-        spanOptionHandling("Series", testingSet.getForm_instance_series());
-        spanOptionHandling("Machine type", testingSet.getForm_instance_type());
+        spanOptionHandling("Operating System / Software", testingSet.getFormOsType());
+        spanOptionHandling("Machine Class", testingSet.getFormClassType());
+        spanOptionHandling("Series", testingSet.getFormInstanceSeries());
+        spanOptionHandling("Machine type", testingSet.getFormInstanceType());
 
         checkBoxHandling(checkBoxAddGPUs);
 
-        spanOptionHandling("Number of GPUs", testingSet.getForm_gpu_number());
-        spanOptionHandling("GPU type", testingSet.getForm_gpu_type());
+        spanOptionHandling("Number of GPUs", testingSet.getFormGpuNumber());
+        spanOptionHandling("GPU type", testingSet.getFormGpuType());
 
         scrollDownTillElementAppeared(localSSD);
 
-        spanOptionHandling("Local SSD", testingSet.getForm_ssd_capacity());
-        spanOptionHandling("Datacenter location", testingSet.getForm_location());
-        spanOptionHandling("Committed usage", testingSet.getForm_usage());
+        spanOptionHandling("Local SSD", testingSet.getFormSsdCapacity());
+        spanOptionHandling("Datacenter location", testingSet.getFormLocation());
+        spanOptionHandling("Committed usage", testingSet.getFormUsage());
 
         return this;
     }
@@ -159,7 +155,6 @@ public class HomePageNavigator extends AbstractPage {
     private void checkBoxHandling(WebElement checkBoxField) {
         new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(checkBoxField));
         checkBoxField.click();
-
         driver.manage().timeouts().implicitlyWait(100, TimeUnit.MILLISECONDS);
     }
 

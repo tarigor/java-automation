@@ -6,6 +6,13 @@ public class Train {
     private String trainName;
     private String tunnelName;
 
+    public Train(int trainTravelTime, int trainAcceptableWaitingTime, String trainName, String tunnelName) {
+        this.trainTravelTime = trainTravelTime;
+        this.trainAcceptableWaitingTime = trainAcceptableWaitingTime;
+        this.trainName = trainName;
+        this.tunnelName = tunnelName;
+    }
+
     public int getTrainTravelTime() {
         return trainTravelTime;
     }
@@ -20,12 +27,5 @@ public class Train {
 
     public void setTrainName(String trainName) {
         this.trainName = trainName;
-    }
-
-    public Train(int trainTravelTime, int trainAcceptableWaitingTime, String trainName, String tunnelName) {
-        this.trainTravelTime = trainTravelTime;
-        this.trainAcceptableWaitingTime = trainAcceptableWaitingTime;
-        this.trainName = trainName;
-        this.tunnelName = tunnelName;
     }
 }

@@ -34,40 +34,29 @@ public class HomePageNavigator extends AbstractPage {
     ArrayList<String> tabs;
     String estimatedCost;
 
+    Actions actions = new Actions(driver);
     @FindBy(xpath = "//*[@class='devsite-search-field devsite-search-query']")
     private WebElement searchButton;
-
     @FindBy(xpath = "//*[@class='gsc-results gsc-webResult']")
     private WebElement searchResultField;
-
     @FindBy(xpath = "//*[@class='compute-engine-block']")
     private WebElement elementOnCalculatorPage;
-
     @FindBy(xpath = "//md-input-container//label[contains(text(),'Number of instances')]/../input")
     private WebElement inputFieldNumberOfInstances;
-
     @FindBy(xpath = "//*[@ng-model='listingCtrl.computeServer.addGPUs']//*[@class='md-container md-ink-ripple']")
     private WebElement checkBoxAddGPUs;
-
     @FindBy(xpath = "//label[text()='Local SSD']/../md-select")
     private WebElement localSSD;
-
     @FindBy(xpath = "//*[@ng-click='listingCtrl.addComputeServer(ComputeEngineForm);']")
     private WebElement buttonAddToEstimate;
-
     @FindBy(xpath = "*//button[@aria-label='Email Estimate']")
     private WebElement buttonEmailEstimate;
-
     @FindBy(xpath = "//input[@type='email']")
     private WebElement inputFieldEmail;
-
     @FindBy(xpath = "//button[@aria-label='Send Email']")
     private WebElement buttonSendEmail;
-
     @FindBy(xpath = "//b[@class='ng-binding']")
     private WebElement costText;
-
-    Actions actions = new Actions(driver);
 
     public HomePageNavigator(WebDriver driver) {
         super(driver);

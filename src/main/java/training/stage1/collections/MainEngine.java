@@ -4,7 +4,7 @@ package training.stage1.collections;
 
 public class MainEngine {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         HiearDef.hierNameRequest();
         Menu.menuShowing();
         MenuEngine.menuAction();

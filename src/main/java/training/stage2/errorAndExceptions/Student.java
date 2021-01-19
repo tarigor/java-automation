@@ -5,6 +5,12 @@ public class Student {
     private String group;
     private String faculty;
 
+    public Student(String studentFullName, String group, String faculty) {
+        this.studentFullName = studentFullName;
+        this.group = group;
+        this.faculty = faculty;
+    }
+
     public String getStudentFullName() {
         return studentFullName;
     }
@@ -26,12 +32,6 @@ public class Student {
     }
 
     public void setFaculty(String faculty) {
-        this.faculty = faculty;
-    }
-
-    public Student(String studentFullName, String group, String faculty) {
-        this.studentFullName = studentFullName;
-        this.group = group;
         this.faculty = faculty;
     }
 }

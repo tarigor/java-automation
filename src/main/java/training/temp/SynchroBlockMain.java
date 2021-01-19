@@ -4,11 +4,12 @@ import java.util.concurrent.TimeUnit;
 
 public class SynchroBlockMain {
     static int counter;
+
     public static void main(String[] args) {
         StringBuffer info = new StringBuffer();
         new Thread(() -> {
-            synchronized (info){
-                do{
+            synchronized (info) {
+                do {
                     info.append('A');
                     System.out.println(info);
                     try {
@@ -16,12 +17,12 @@ public class SynchroBlockMain {
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-                }while (counter++ < 4);
+                } while (counter++ < 4);
             }
         }).start();
         new Thread(() -> {
-            synchronized (info){
-                while (counter++ < 6){
+            synchronized (info) {
+                while (counter++ < 6) {
                     info.append('Z');
                     System.out.println(info);
                 }

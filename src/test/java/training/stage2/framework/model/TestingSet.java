@@ -36,43 +36,43 @@ public class TestingSet {
         this.form_usage = form_usage;
     }
 
-    public String getForm_number_of_instance() {
+    public String getFormNumberOfInstance() {
         return form_number_of_instance;
     }
 
-    public String getForm_os_type() {
+    public String getFormOsType() {
         return form_os_type;
     }
 
-    public String getForm_class_type() {
+    public String getFormClassType() {
         return form_class_type;
     }
 
-    public String getForm_instance_series() {
+    public String getFormInstanceSeries() {
         return form_instance_series;
     }
 
-    public String getForm_instance_type() {
+    public String getFormInstanceType() {
         return form_instance_type;
     }
 
-    public String getForm_gpu_number() {
+    public String getFormGpuNumber() {
         return form_gpu_number;
     }
 
-    public String getForm_gpu_type() {
+    public String getFormGpuType() {
         return form_gpu_type;
     }
 
-    public String getForm_ssd_capacity() {
+    public String getFormSsdCapacity() {
         return form_ssd_capacity;
     }
 
-    public String getForm_location() {
+    public String getFormLocation() {
         return form_location;
     }
 
-    public String getForm_usage() {
+    public String getFormUsage() {
         return form_usage;
     }
 

@@ -49,7 +49,7 @@
               <ul>
                 <li>
                   <a href="#" class="navigator-link " panel-name="test-xml-All_Test_Suite">
-                    <span>C:\Users\Admin\learning\src\test\resources\testng-all.xml</span>
+                    <span>C:\Users\Admin\learning\src\test\resources\testng-hardcore.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -102,7 +102,7 @@
                     <div class="method-list-content passed suite-All_Test_Suite">
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-All_Test_Suite" title="training.stage2.framework.test.WebDriverTest" hash-for-method="scenarioTest">scenarioTest</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-All_Test_Suite" title="training.stage2.webdriver.hardcore.WebDriverTest" hash-for-method="scenarioTest">scenarioTest</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-All_Test_Suite -->
@@ -120,7 +120,7 @@
           <div class="suite-All_Test_Suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
-              <span class="class-name">training.stage2.framework.test.WebDriverTest</span>
+              <span class="class-name">training.stage2.webdriver.hardcore.WebDriverTest</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
@@ -137,22 +137,22 @@
         </div> <!-- panel All_Test_Suite -->
         <div panel-name="test-xml-All_Test_Suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\Admin\learning\src\test\resources\testng-all.xml</span>
+            <span class="header-content">C:\Users\Admin\learning\src\test\resources\testng-hardcore.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
 &lt;suite guice-stage=&quot;DEVELOPMENT&quot; verbose=&quot;0&quot; name=&quot;All Test Suite&quot;&gt;
-  &lt;test thread-count=&quot;5&quot; verbose=&quot;2&quot; name=&quot;C:/Users/Admin/learning/src/test/java/training/stage2/framework/test/WebDriverTest.java&quot;&gt;
+  &lt;test thread-count=&quot;5&quot; verbose=&quot;2&quot; name=&quot;C:/Users/Admin/learning/src/test/java/training/stage2/webdriver/hardcore/WebDriverTest.java&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;training.stage2.framework.test.WebDriverTest&quot;&gt;
+      &lt;class name=&quot;training.stage2.webdriver.hardcore.WebDriverTest&quot;&gt;
         &lt;methods&gt;
           &lt;include name=&quot;scenarioTest&quot;/&gt;
         &lt;/methods&gt;
-      &lt;/class&gt; &lt;!-- training.stage2.framework.test.WebDriverTest --&gt;
+      &lt;/class&gt; &lt;!-- training.stage2.webdriver.hardcore.WebDriverTest --&gt;
     &lt;/classes&gt;
-  &lt;/test&gt; &lt;!-- C:/Users/Admin/learning/src/test/java/training/stage2/framework/test/WebDriverTest.java --&gt;
+  &lt;/test&gt; &lt;!-- C:/Users/Admin/learning/src/test/java/training/stage2/webdriver/hardcore/WebDriverTest.java --&gt;
 &lt;/suite&gt; &lt;!-- All Test Suite --&gt;
             </pre>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -164,7 +164,7 @@
           <div class="main-panel-content rounded-window-bottom">
             <ul>
               <li>
-                <span class="test-name">C:/Users/Admin/learning/src/test/java/training/stage2/framework/test/WebDriverTest.java (1 class)</span>
+                <span class="test-name">C:/Users/Admin/learning/src/test/java/training/stage2/webdriver/hardcore/WebDriverTest.java (1 class)</span>
               </li>
             </ul>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -193,13 +193,13 @@ data.addColumn('number', 'Time (ms)');
 data.addRows(1);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'scenarioTest')
-data.setCell(0, 2, 'training.stage2.framework.test.WebDriverTest')
-data.setCell(0, 3, 50561);
+data.setCell(0, 2, 'training.stage2.webdriver.hardcore.WebDriverTest')
+data.setCell(0, 3, 76409);
 window.suiteTableData['All_Test_Suite']= { tableData: data, tableDiv: 'times-div-All_Test_Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 50 seconds</span>
+              <span class="suite-total-time">Total running time: 1 minutes</span>
               <div id="times-div-All_Test_Suite">
               </div> <!-- times-div-All_Test_Suite -->
             </div> <!-- times-div -->
@@ -225,18 +225,14 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">training.stage2.framework.test.WebDriverTest</div> <!-- chronological-class-name -->
-              <div class="configuration-method before">
-                <span class="method-name">setUp</span>
-                <span class="method-start">0 ms</span>
-              </div> <!-- configuration-method before -->
+              <div class="chronological-class-name">training.stage2.webdriver.hardcore.WebDriverTest</div> <!-- chronological-class-name -->
               <div class="test-method">
                 <span class="method-name">scenarioTest</span>
-                <span class="method-start">9269 ms</span>
+                <span class="method-start">0 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">stopBrowser</span>
-                <span class="method-start">59836 ms</span>
+                <span class="method-name">afterTestCompleted</span>
+                <span class="method-start">76418 ms</span>
               </div> <!-- configuration-method after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

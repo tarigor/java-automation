@@ -4,7 +4,7 @@ import training.stage1.cleancode.models.MilitaryType;
 
 import java.util.Objects;
 
-public class MilitaryPlane extends Plane{
+public class MilitaryPlane extends Plane {
 
     private MilitaryType type;
 
@@ -21,7 +21,7 @@ public class MilitaryPlane extends Plane{
     public String toString() {
         return super.toString().replace("}",
                 ", type=" + type +
-                '}');
+                        '}');
     }
 
     @Override

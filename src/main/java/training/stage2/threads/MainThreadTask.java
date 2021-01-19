@@ -27,9 +27,6 @@ public class MainThreadTask {
                         System.out.println("");
                         tunnelA.element().setTrainName(tunnelA.element().getTrainName() + "(redirected from " + "Tunnel-1" + ")");
                         tunnelB.put(tunnelA.take());
-
-//                        tunnelB.put(tunnelA.element());
-//                        tunnelA.remove(tunnelA.element());
                         continue;
                     }
                     new Thread(new TunnelThread(tunnelAMain, "Tunnel-1")).start();
@@ -56,8 +53,6 @@ public class MainThreadTask {
 
                         tunnelA.put(tunnelB.take());
 
-//                        tunnelA.put(tunnelB.element());
-//                        tunnelB.remove(tunnelB.element());
                         continue;
                     }
                     new Thread(new TunnelThread(tunnelBMain, "Tunnel-2")).start();

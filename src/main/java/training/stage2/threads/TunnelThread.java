@@ -17,7 +17,7 @@ public class TunnelThread implements Runnable {
 
     public synchronized void run() {
         try {
-            Thread.currentThread().setName(tunnelName+": "+train.element().getTrainName());
+            Thread.currentThread().setName(tunnelName + ": " + train.element().getTrainName());
 
             System.out.println(tunnelName + ": " + train.element().getTrainName() + " Thread started" + " Time:" + LocalTime.now());
             System.out.println(tunnelName + ": " + train.element().getTrainName() + " Travel time:" + train.element().getTrainTravelTime() + "s");

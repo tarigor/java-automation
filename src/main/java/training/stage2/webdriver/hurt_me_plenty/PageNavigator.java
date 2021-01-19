@@ -26,27 +26,25 @@ public class PageNavigator extends AbstractPage {
     private static final String FORM_SSD_CAPACITY = "2x375 GB";
     private static final String FORM_LOCATION = "Frankfurt (europe-west3)";
     private static final String FORM_USAGE = "1 Year";
-
+    Actions actions = new Actions(driver);
     @FindBy(xpath = "//*[@class='devsite-search-field devsite-search-query']")
     private WebElement searchButton;
-
     @FindBy(xpath = "//*[@class='gsc-results gsc-webResult']")
     private WebElement searchResultField;
-
     @FindBy(xpath = "//*[@class='compute-engine-block']")
     private WebElement elementOnCalculatorPage;
-
     @FindBy(xpath = "//md-input-container//label[contains(text(),'Number of instances')]/../input")
     private WebElement inputFieldNumberOfInstances;
-
     @FindBy(xpath = "//*[@ng-model='listingCtrl.computeServer.addGPUs']//*[@class='md-container md-ink-ripple']")
     private WebElement checkBoxAddGPUs;
-
     @FindBy(xpath = "//label[text()='Local SSD']/../md-select")
     private WebElement localSSD;
-
     @FindBy(xpath = "//*[@ng-click='listingCtrl.addComputeServer(ComputeEngineForm);']")
     private WebElement buttonAddToEstimate;
+
+    public PageNavigator(WebDriver driver) {
+        super(driver);
+    }
 
     public static String getFormClassType() {
         return FORM_CLASS_TYPE;
@@ -68,12 +66,6 @@ public class PageNavigator extends AbstractPage {
         return FORM_USAGE;
     }
 
-    Actions actions = new Actions(driver);
-
-    public PageNavigator(WebDriver driver) {
-        super(driver);
-    }
-
     public PageNavigator openPage() {
         driver.manage().window().maximize();
         driver.get(HOMEPAGE_URL);
@@ -81,7 +73,6 @@ public class PageNavigator extends AbstractPage {
     }
 
     public PageNavigator searchForElementAndClick() {
-        System.out.println("xpath: " + String.valueOf(searchButton));
         new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(searchButton));
         searchButton.click();
         searchButton.sendKeys(SEARCH_REQUEST);
@@ -119,9 +110,8 @@ public class PageNavigator extends AbstractPage {
         return this;
     }
 
-    public PageNavigator createRequest() {
+    public void createRequest() {
         buttonAddToEstimate.click();
-        return this;
     }
 
     private void checkBoxHandling(WebElement checkBoxField) {

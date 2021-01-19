@@ -5,7 +5,7 @@ import training.stage1.cleancode.models.ExperimentalTypes;
 
 import java.util.Objects;
 
-public class experimentalPlane extends Plane{
+public class experimentalPlane extends Plane {
 
     private ExperimentalTypes experimentalType;
     private ClassificationLevel classificationLevel;
@@ -16,21 +16,23 @@ public class experimentalPlane extends Plane{
         this.classificationLevel = classificationLevel;
     }
 
-    public ClassificationLevel getClassificationLevel(){
+    public ClassificationLevel getClassificationLevel() {
         return classificationLevel;
     }
 
     @Override
     public boolean equals(Object object) {
         if (this == object) return true;
-        if (!(object instanceof  experimentalPlane)) return false;
+        if (!(object instanceof experimentalPlane)) return false;
         if (!super.equals(object)) return false;
         experimentalPlane that = (experimentalPlane) object;
         return model == that.model;
     }
 
     @Override
-    public int hashCode() {return Objects.hash(super.hashCode(), model); }
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), model);
+    }
 
     @Override
     public String toString() {

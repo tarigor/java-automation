@@ -20,7 +20,7 @@ public class PageNavigator extends AbstractPage {
     @FindBy(xpath = "//*[@id='select2-postform-expiration-container']")
     private WebElement pasteExpirationField;
 
-    @FindBy(xpath = "//*[@class='select2-results__option' and text()='"+EXPIRATION_TIME+"']")
+    @FindBy(xpath = "//*[@class='select2-results__option' and text()='" + EXPIRATION_TIME + "']")
     private WebElement pasteExpirationFieldSelect;
 
     @FindBy(xpath = "//*[@id='postform-name']")
@@ -28,6 +28,9 @@ public class PageNavigator extends AbstractPage {
 
     @FindBy(xpath = "//*[@class='btn -big']")
     private WebElement createButton;
+
+    @FindBy(xpath = "//*[contains(@class,'bsa_fixed')]//*[text()='x']")
+    private WebElement bannerCloseButton;
 
     public PageNavigator(WebDriver driver) {
         super(driver);
@@ -49,13 +52,16 @@ public class PageNavigator extends AbstractPage {
         titleField.sendKeys(TITLE_TEXT);
         return this;
     }
-    public PageNavigator createPaste(){
 
+    public PageNavigator createPaste() {
+        if (bannerCloseButton.isDisplayed()) {
+            bannerCloseButton.click();
+        }
         while (!createButton.isDisplayed()) {
             new Actions(driver).sendKeys(Keys.DOWN);
         }
-
         createButton.click();
+        new WebDriverWait(driver, 10).until(CustomConditions.jQueryAJAXCompleted());
         return this;
     }
 }

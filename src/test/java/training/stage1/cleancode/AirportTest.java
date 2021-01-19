@@ -1,15 +1,14 @@
 package training.stage1.cleancode;
 
-import training.stage1.cleancode.Airport;
-import training.stage1.cleancode.Planes.experimentalPlane;
-import training.stage1.cleancode.models.ClassificationLevel;
-import training.stage1.cleancode.models.ExperimentalTypes;
-import training.stage1.cleancode.models.MilitaryType;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import training.stage1.cleancode.Planes.MilitaryPlane;
 import training.stage1.cleancode.Planes.PassengerPlane;
 import training.stage1.cleancode.Planes.Plane;
+import training.stage1.cleancode.Planes.experimentalPlane;
+import training.stage1.cleancode.models.ClassificationLevel;
+import training.stage1.cleancode.models.ExperimentalTypes;
+import training.stage1.cleancode.models.MilitaryType;
 
 import java.util.Arrays;
 import java.util.List;
@@ -82,10 +81,10 @@ public class AirportTest {
     }
 
     @Test
-    public void testExperimentalPlanesHasClassificationLevelHigherThanUnclassified(){
+    public void testExperimentalPlanesHasClassificationLevelHigherThanUnclassified() {
         Airport airport = new Airport(planes);
         List<experimentalPlane> experimentalPlanes = airport.getExperimentalPlanes();
-        for(experimentalPlane experimentalPlane : experimentalPlanes){
+        for (experimentalPlane experimentalPlane : experimentalPlanes) {
             Assert.assertFalse(experimentalPlane.getClassificationLevel() == ClassificationLevel.UNCLASSIFIED);
         }
     }

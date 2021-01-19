@@ -1,12 +1,12 @@
 package training.stage1.classes;
 
 public class Customer {
-        private int id;
-        private String familyName;
-        private String firstName;
-        private String secondaryName;
-        private int creditCardNumber;
-        private int bankAccountNumber;
+    private int id;
+    private String familyName;
+    private String firstName;
+    private String secondaryName;
+    private int creditCardNumber;
+    private int bankAccountNumber;
 
     public int getId() {
         return id;

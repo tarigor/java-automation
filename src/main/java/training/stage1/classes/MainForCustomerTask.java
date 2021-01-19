@@ -1,4 +1,5 @@
 package training.stage1.classes;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
@@ -9,21 +10,21 @@ public class MainForCustomerTask {
 
     public static void main(String[] args) {
         menu();
-        boolean completeTask=false;
-        while (!completeTask){
+        boolean completeTask = false;
+        while (!completeTask) {
             Scanner inputOption = new Scanner(System.in);
             String option = inputOption.next();
-            switch (option){
+            switch (option) {
                 case "1":
                     sortOfCustomer();
                     menu();
                     break;
-                case"2":
+                case "2":
                     searchByrangeOfCreditCard();
                     menu();
                     break;
                 case "0":
-                    completeTask=true;
+                    completeTask = true;
             }
         }
     }
@@ -33,11 +34,11 @@ public class MainForCustomerTask {
         ArrayList<Customer> customerList;
         customerList = new ArrayList<>();
 
-        int arrayIndex=0;
+        int arrayIndex = 0;
 
-        boolean customeBasecomplete=false;
+        boolean customeBasecomplete = false;
 
-        while(!customeBasecomplete){
+        while (!customeBasecomplete) {
             Scanner fieldInput = new Scanner(System.in);
 
             Customer singleCustomer = new Customer();
@@ -81,15 +82,18 @@ public class MainForCustomerTask {
         System.out.println("0. finish");
         System.out.println("");
     }
-    public static void sortOfCustomer(){
+
+    public static void sortOfCustomer() {
         ArrayList<String> customersName = new ArrayList<>();
-        for(int i=0; i<customerList.size();i++) customersName.add(i,(customerList.get(i)).getFamilyName()+" "+(customerList.get(i)).getFirstName()+" "+(customerList.get(i)).getSecondaryName());
+        for (int i = 0; i < customerList.size(); i++)
+            customersName.add(i, (customerList.get(i)).getFamilyName() + " " + (customerList.get(i)).getFirstName() + " " + (customerList.get(i)).getSecondaryName());
         Collections.sort(customersName);
-        for(int i=0; i<customerList.size();i++) {
+        for (int i = 0; i < customerList.size(); i++) {
             System.out.println(customersName.get(i));
         }
     }
-    public static void searchByrangeOfCreditCard(){
+
+    public static void searchByrangeOfCreditCard() {
         Scanner rangeInput = new Scanner(System.in);
         System.out.println("Please input a low range of credit card search");
         int lowRangeSearching = rangeInput.nextInt();
