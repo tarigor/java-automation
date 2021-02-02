@@ -1,5 +1,5 @@
 # java-automation
-All tasks in one of Java Automation course stage 1 and 2
+Java Automation course stage 1 and 2
 
 List of tasks:
 
